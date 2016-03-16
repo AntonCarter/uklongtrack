@@ -13,10 +13,15 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SpeedSkatingResultsApi.sharedInstance.GetSkaters(handler)
-        SpeedSkatingResultsApi.sharedInstance.GetSkaterPrs(51300, completionHandler: handler)
+        SpeedSkatingResultsApi.sharedInstance.GetSkaters(skaterHandler)
+//        SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handler)
+//        SpeedSkatingResultsApi.sharedInstance.GetSkaterPrs(51300, completionHandler: handler)
     }
 
+    func skaterHandler(response: [Skater]) {
+        print(response.count)
+    }
+    
     func handler(response: String){
         print(response)
     }

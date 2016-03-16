@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172FED91C9A01D200E0F8CE /* Skater.swift */; };
 		61BDBD571C98961300271653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD561C98961300271653 /* AppDelegate.swift */; };
 		61BDBD591C98961300271653 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD581C98961300271653 /* FirstViewController.swift */; };
 		61BDBD5B1C98961300271653 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD5A1C98961300271653 /* SecondViewController.swift */; };
@@ -37,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		61BDBD531C98961300271653 /* UK_Longtrack_Skaters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UK_Longtrack_Skaters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6172FED91C9A01D200E0F8CE /* Skater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
+		61BDBD531C98961300271653 /* UK Skaters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UK Skaters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD561C98961300271653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BDBD581C98961300271653 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		61BDBD5A1C98961300271653 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		61BDBD541C98961300271653 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61BDBD531C98961300271653 /* UK_Longtrack_Skaters.app */,
+				61BDBD531C98961300271653 /* UK Skaters.app */,
 				61BDBD691C98961300271653 /* UK_Longtrack_SkatersTests.xctest */,
 				61BDBD741C98961300271653 /* UK_Longtrack_SkatersUITests.xctest */,
 			);
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				61BDBD8C1C989F0900271653 /* SpeedSkatingResultsApi.swift */,
+				6172FED91C9A01D200E0F8CE /* Skater.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -167,7 +170,7 @@
 			);
 			name = UK_Longtrack_Skaters;
 			productName = UK_Longtrack_Skaters;
-			productReference = 61BDBD531C98961300271653 /* UK_Longtrack_Skaters.app */;
+			productReference = 61BDBD531C98961300271653 /* UK Skaters.app */;
 			productType = "com.apple.product-type.application";
 		};
 		61BDBD681C98961300271653 /* UK_Longtrack_SkatersTests */ = {
@@ -287,6 +290,7 @@
 				61BDBD8A1C98976500271653 /* SkatersViewController.swift in Sources */,
 				61BDBD591C98961300271653 /* FirstViewController.swift in Sources */,
 				61BDBD8D1C989F0900271653 /* SpeedSkatingResultsApi.swift in Sources */,
+				6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +435,7 @@
 				INFOPLIST_FILE = UK_Longtrack_Skaters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-Skaters";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "UK Skaters";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -517,6 +521,7 @@
 				61BDBD7F1C98961300271653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61BDBD801C98961300271653 /* Build configuration list for PBXNativeTarget "UK_Longtrack_SkatersTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				61BDBD821C98961300271653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61BDBD831C98961300271653 /* Build configuration list for PBXNativeTarget "UK_Longtrack_SkatersUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				61BDBD851C98961300271653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
