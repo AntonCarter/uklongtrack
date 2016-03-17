@@ -22,61 +22,12 @@ class SpeedSkatingResultsApi  {
         
     }
     
-    func GetSkaters (handler: (skaters: [Skater]) ->()){
+    func GetBritishRecordsJson(completionHandler: (response: NSData) -> ()){
         
-        var skaters = [Skater]()
-        
-                GetSkatersJson({(data: NSData) -> () in
-        
-                    do{
-                        let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-        
-                        if let skatersJson = json["skaters"] as? [[String: AnyObject]]{
-                            for skaterJson in skatersJson {
-                                let skater = Skater()
-        
-                                if let id = skaterJson["id"] as? Int {
-                                    skater.id =  id
-                                }
-        
-                                if let familyName = skaterJson["familyname"] as? String {
-                                    skater.familyName =  familyName
-                                }
-        
-                                if let givenName = skaterJson["givenname"] as? String {
-                                    skater.givenName =  givenName
-                                }
-        
-                                if let country = skaterJson["country"] as? String {
-                                    skater.country =  country
-                                }
-        
-                                if let gender = skaterJson["gender"] as? String {
-                                    skater.gender =  gender
-                                }
-        
-                                if let category = skaterJson["category"] as? String {
-                                    skater.category =  category
-                                }
-                                
-                                if let category = skaterJson["category"] as? Int {
-                                    skater.category =  String(category)                                }
-        
-                                skaters.append(skater)
-                            }
-                        }
-                        
-                    }catch{
-                     print("error serializing JSON: \(error)")
-                    }
-                    
-                    }
-                    
-                )
-        
-        
-        
-        handler(skaters: skaters)
+        let countryCode = "GBR"
+        let ukSkatersUrl = baseURL + "country_records.php?country=\(countryCode)"
+    
+        makeHTTPGetRequest(ukSkatersUrl, completionHandler: completionHandler)
     }
 
     func makeHTTPGetRequest(path: String, completionHandler: (response: NSData) -> ()) {

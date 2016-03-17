@@ -8,22 +8,19 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class BritishRecordsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SpeedSkatingResultsApi.sharedInstance.GetSkaters(skaterHandler)
-//        SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handler)
-//        SpeedSkatingResultsApi.sharedInstance.GetSkaterPrs(51300, completionHandler: handler)
+        SpeedSkatingResultsApi.sharedInstance.GetBritishRecordsJson(handler);
     }
 
-    func skaterHandler(response: [Skater]) {
-        print(response.count)
-    }
-    
-    func handler(response: String){
+   
+    func handler(response: NSData){
         print(response)
+        
+        let records = NationalRecord.GetNationalRecordsFromJson(response)
     }
     
     override func didReceiveMemoryWarning() {

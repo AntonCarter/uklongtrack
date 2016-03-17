@@ -10,14 +10,25 @@ import UIKit
 
 class SkatersViewController: UITableViewController {
 
+    var _skaters:[Skater] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func handleSkaters(skaterData:NSData) {
+        _skaters = Skater.GetSkatersFromJson(skaterData)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,15 +45,42 @@ class SkatersViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return _skaters.count
     }
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 
+    @IBOutlet weak var search: UISearchBar!
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("skaterCell", forIndexPath: indexPath)
-
+        let skater = _skaters[indexPath.row];
+        let fn = skater.familyName
+        let gn = skater.givenName
+        
         // Configure the cell...
-        cell.textLabel!.text = "Peter Carr"
+        if let nameLabel = cell.viewWithTag(100) as? UILabel {
+            nameLabel.text = "\(gn) \(fn)"
+        }
+
+        if let genderLabel = cell.viewWithTag(101) as? UILabel {
+            if(skater.gender == "m"){
+                genderLabel.text = "Male"
+            }else if(skater.gender == "f"){
+                genderLabel.text = "Female"
+            }
+            else{
+                genderLabel.text = ""
+            }
+        }
+        
+        if let categoryLabel = cell.viewWithTag(102) as? UILabel {
+            categoryLabel.text = "\(skater.category)"
+        }
+        
+        
         return cell
     }
 
