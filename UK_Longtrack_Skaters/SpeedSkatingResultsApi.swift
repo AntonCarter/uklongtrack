@@ -10,9 +10,34 @@ import Foundation
 
 class SpeedSkatingResultsApi  {
     static let sharedInstance = SpeedSkatingResultsApi()
+    var searchData = [NSData]()
     
     let baseURL = "http://speedskatingresults.com/api/json/"
 
+    func SearchSkatersJson(searchText: String, completionHandler: (response: NSData) -> ()){
+        
+        let trimmedSearchText = searchText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let fullNameArr = trimmedSearchText.characters.split(" ", maxSplit: 2, allowEmptySlices: false).map(String.init)
+        
+        if (fullNameArr.count==1){
+            
+            let countryCode = "GBR"
+            let ukSkatersUrlFamilyNameSearch = baseURL + "skater_lookup.php?country=\(countryCode)&familyname=\(trimmedSearchText)"
+            let ukSkatersUrlGivenNameSearch = baseURL + "skater_lookup.php?country=\(countryCode)&givenname=\(trimmedSearchText)"
+            
+            makeHTTPGetRequest(ukSkatersUrlFamilyNameSearch, completionHandler:   completionHandler)
+            makeHTTPGetRequest(ukSkatersUrlGivenNameSearch, completionHandler:   completionHandler)
+        }
+        
+        if (fullNameArr.count==2){
+            
+            let countryCode = "GBR"
+            let ukSkatersUrlFamilyNameSearch = baseURL + "skater_lookup.php?country=\(countryCode)&familyname=\(fullNameArr[1])&givenname=\(fullNameArr[0])"
+            
+            makeHTTPGetRequest(ukSkatersUrlFamilyNameSearch, completionHandler:   completionHandler)
+            
+        }
+    }
     
     func GetSkatersJson(completionHandler: (response: NSData) -> ()){
         let countryCode = "GBR"

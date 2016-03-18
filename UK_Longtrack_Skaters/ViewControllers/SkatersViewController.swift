@@ -8,14 +8,20 @@
 
 import UIKit
 
-class SkatersViewController: UITableViewController {
+class SkatersViewController: UITableViewController, UISearchBarDelegate {
 
     var _skaters:[Skater] = []
+    var _filteredSkaters:[Skater] = []
+    var _searchActive = false
     
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
+
+        searchBar.showsCancelButton = true
+        searchBar.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,10 +31,35 @@ class SkatersViewController: UITableViewController {
     }
     
     func handleSkaters(skaterData:NSData) {
-        _skaters = Skater.GetSkatersFromJson(skaterData)
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+        
+        let newSkaters = Skater.GetSkatersFromJson(skaterData)
+        
+        if(newSkaters.count>0){
+            _filteredSkaters.appendContentsOf(newSkaters)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        
+
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        if let search = searchBar.text{
+            _searchActive = true;
+            _filteredSkaters = [Skater]()
+            SpeedSkatingResultsApi.sharedInstance.SearchSkatersJson(search, completionHandler: handleSkaters)
+        }
+    }
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        dismissKeyboard();
+        _searchActive = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +76,9 @@ class SkatersViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if(_searchActive){
+            return _filteredSkaters.count
+        }
         return _skaters.count
     }
     func dismissKeyboard() {
@@ -56,7 +90,15 @@ class SkatersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("skaterCell", forIndexPath: indexPath)
-        let skater = _skaters[indexPath.row];
+        var skater = Skater()
+        
+        if(_searchActive){
+            skater = _filteredSkaters[indexPath.row];
+        }else{
+            skater = _skaters[indexPath.row];
+        }
+        
+        
         let fn = skater.familyName
         let gn = skater.givenName
         
