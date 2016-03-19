@@ -2,11 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "first.pdf"
+      "filename" : "uk_longtrack_logo.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "skater.pdf"
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

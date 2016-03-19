@@ -14,6 +14,16 @@ class SpeedSkatingResultsApi  {
     
     let baseURL = "http://speedskatingresults.com/api/json/"
 
+    func GetPersonalBests(skaterId: Int, completionHandler: (response: NSData) ->()){
+        let search = baseURL + "personal_records.php?skater=\(skaterId)"
+        makeHTTPGetRequest(search, completionHandler:   completionHandler)
+    }
+    
+    func GetSeasonBests(skaterId: Int, completionHandler: (response: NSData) ->()){
+        let search = baseURL + "season_bests.php?skater=\(skaterId)"
+        makeHTTPGetRequest(search, completionHandler:   completionHandler)
+    }
+    
     func SearchSkatersJson(searchText: String, completionHandler: (response: NSData) -> ()){
         
         let trimmedSearchText = searchText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
