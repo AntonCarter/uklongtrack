@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BritishRecordsViewController: UITableViewController {
+class BritishRecordsViewController: UITableViewController, UIViewControllerPreviewingDelegate {
 
      var _sections: [String] = ["Ladies", "Men", "Junior Ladies", "Junior Men"]
     
@@ -19,6 +19,12 @@ class BritishRecordsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if( traitCollection.forceTouchCapability == .Available){
+            
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }
         
         SpeedSkatingResultsApi.sharedInstance.GetBritishRecordsJson(recordHandler)
 
@@ -77,6 +83,49 @@ class BritishRecordsViewController: UITableViewController {
         
         
     }
+    
+    func getDataForSection(section: Int) -> [NationalRecord] {
+        if(section==0){
+            return _seniorLadies
+        }
+        if(section==1){
+            return _seniorMen
+        }
+        if(section==2){
+            return _juniorLadies
+        }
+        if(section==3){
+            return _juniorMen
+        }
+        
+        return [NationalRecord]()
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else {return nil}
+        
+        let record = getDataForSection(indexPath.section)[indexPath.row]
+    
+        if let resultController = storyboard!.instantiateViewControllerWithIdentifier("PBViewController") as? PersonalBestsTableViewController {
+            
+            resultController.thisSkater = record.skater
+            return resultController
+            //        presentViewController(resultController, animated: true, completion: nil)
+            
+        }
+        
+        return nil;
+        
+        
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        
+        showViewController(viewControllerToCommit, sender: self)
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
