@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,11 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="uk_longtrack_logo" highlightedImage="uk_longtrack_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-bz-77Y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uk_longtrack_logo" highlightedImage="uk_longtrack_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-bz-77Y">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kpu-bz-77Y" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="H7Q-BK-8Mg"/>
+                            <constraint firstItem="kpu-bz-77Y" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="LVj-Sr-7CA"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="kpu-bz-77Y" secondAttribute="bottom" id="Vm4-nX-OxY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kpu-bz-77Y" secondAttribute="trailing" constant="-20" id="h2a-M8-Vbo"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
