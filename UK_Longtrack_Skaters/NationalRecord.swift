@@ -27,7 +27,11 @@ class NationalRecord{
         }
         
         if let date = json["date"] as? String {
-            self.date =  date
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "YYYY-MM-DD"
+            let actualDate = formatter.dateFromString(date)
+            formatter.dateFormat = "DD MMMM YYYY"
+            self.date =  formatter.stringFromDate(actualDate!)
         }
 
         if let time = json["time"] as? String {

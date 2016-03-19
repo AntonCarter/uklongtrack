@@ -36,13 +36,18 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    @IBAction func resultsLinkClicked(sender: UIButton) {
+        
+        UIApplication.sharedApplication().openURL(SpeedSkatingResultsApi.GetWebUrl())
+        
+    }
     func handleSkaters(skaterData:NSData) {
         
-        let newSkaters = Skater.GetSkatersFromJson(skaterData)
+        let newSkaters = Skater.GetSkatersFromJson(skaterData)//.sort(){$0.givenName > $1.givenName}
         
         if(newSkaters.count>0){
             _filteredSkaters.appendContentsOf(newSkaters)
-            
+            _filteredSkaters.sortInPlace({$0.familyName < $1.familyName})
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })

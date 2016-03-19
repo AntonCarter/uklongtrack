@@ -12,8 +12,14 @@ class SpeedSkatingResultsApi  {
     static let sharedInstance = SpeedSkatingResultsApi()
     var searchData = [NSData]()
     
-    let baseURL = "http://speedskatingresults.com/api/json/"
+    static let speedskatingResultUrl = "http://speedskatingresults.com/"
+    let baseURL = speedskatingResultUrl + "/api/json/"
 
+    internal static func GetWebUrl() -> NSURL {
+        let url = NSURL(string: speedskatingResultUrl)
+        return url!
+    }
+    
     func GetPersonalBests(skaterId: Int, completionHandler: (response: NSData) ->()){
         let search = baseURL + "personal_records.php?skater=\(skaterId)"
         makeHTTPGetRequest(search, completionHandler:   completionHandler)
