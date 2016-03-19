@@ -38,7 +38,7 @@ class NationalRecord{
             self.location =  location
         }
 
-        if let distance = json["location"] as? Int {
+        if let distance = json["distance"] as? Int {
             self.distance =  distance
         }
         

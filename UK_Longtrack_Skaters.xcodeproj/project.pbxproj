@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6141ECF51C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */; };
 		6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172FED91C9A01D200E0F8CE /* Skater.swift */; };
 		6172FEDC1C9B5C0500E0F8CE /* NationalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */; };
 		61BDBD571C98961300271653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD561C98961300271653 /* AppDelegate.swift */; };
 		61BDBD591C98961300271653 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD581C98961300271653 /* FirstViewController.swift */; };
-		61BDBD5B1C98961300271653 /* BritishRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD5A1C98961300271653 /* BritishRecordsViewController.swift */; };
 		61BDBD5E1C98961300271653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDBD5C1C98961300271653 /* Main.storyboard */; };
 		61BDBD601C98961300271653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BDBD5F1C98961300271653 /* Assets.xcassets */; };
 		61BDBD631C98961300271653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDBD611C98961300271653 /* LaunchScreen.storyboard */; };
@@ -39,12 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonalBestsTableViewController.swift; path = ViewControllers/PersonalBestsTableViewController.swift; sourceTree = "<group>"; };
 		6172FED91C9A01D200E0F8CE /* Skater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
 		6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NationalRecord.swift; sourceTree = "<group>"; };
 		61BDBD531C98961300271653 /* UK Skaters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UK Skaters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD561C98961300271653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BDBD581C98961300271653 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		61BDBD5A1C98961300271653 /* BritishRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BritishRecordsViewController.swift; sourceTree = "<group>"; };
 		61BDBD5D1C98961300271653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61BDBD5F1C98961300271653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61BDBD621C98961300271653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		61BDBD881C98972100271653 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				61BDBD5A1C98961300271653 /* BritishRecordsViewController.swift */,
 				61BDBD891C98976500271653 /* SkatersViewController.swift */,
+				6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -289,10 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6172FEDC1C9B5C0500E0F8CE /* NationalRecord.swift in Sources */,
-				61BDBD5B1C98961300271653 /* BritishRecordsViewController.swift in Sources */,
 				61BDBD571C98961300271653 /* AppDelegate.swift in Sources */,
 				61BDBD8A1C98976500271653 /* SkatersViewController.swift in Sources */,
 				61BDBD591C98961300271653 /* FirstViewController.swift in Sources */,
+				6141ECF51C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift in Sources */,
 				61BDBD8D1C989F0900271653 /* SpeedSkatingResultsApi.swift in Sources */,
 				6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */,
 			);

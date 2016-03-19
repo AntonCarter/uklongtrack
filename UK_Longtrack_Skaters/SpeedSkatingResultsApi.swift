@@ -70,8 +70,8 @@ class SpeedSkatingResultsApi  {
         let url = NSURL(string:path)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(responseString)
+//            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+//            print(responseString)
             completionHandler(response: data!)
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SkatersViewController: UITableViewController, UISearchBarDelegate {
+class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewControllerPreviewingDelegate {
 
     var _skaters:[Skater] = []
     var _filteredSkaters:[Skater] = []
@@ -17,6 +17,12 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if( traitCollection.forceTouchCapability == .Available){
+            
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }
         
         SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
 
@@ -45,9 +51,37 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate {
 
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        print(searchText)
+//    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else {return nil}
+        let skater = _filteredSkaters[indexPath.row]
+        
+       
+        if let resultController = storyboard!.instantiateViewControllerWithIdentifier("PBViewController") as? PersonalBestsTableViewController {
+            
+            resultController.thisSkater = skater
+            return resultController
+    //        presentViewController(resultController, animated: true, completion: nil)
+        
+        }
+    
+        return nil;
+        
+        
     }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        
+        showViewController(viewControllerToCommit, sender: self)
+        
+    }
+    
+    
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         if let search = searchBar.text{
@@ -58,6 +92,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        _skaters = _filteredSkaters;
         dismissKeyboard();
         _searchActive = false
     }
@@ -84,7 +119,6 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
 
     @IBOutlet weak var search: UISearchBar!
     
@@ -162,14 +196,25 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        segue.destinationViewController.title = "\(_selectedSkater.givenName) \(_selectedSkater.familyName)"
+
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            
+            let selectedSkater  = _filteredSkaters[indexPath.row]
+            let vc = segue.destinationViewController as! PersonalBestsTableViewController
+            vc.thisSkater = selectedSkater
+        }
+
+        
+        
     }
-    */
+    
 
 }
