@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:UK_Longtrack_Skaters.xcodeproj">
+      location = "self:/Users/antoncarter/Documents/Development/swift/uk_ltrk_skaters/Uk_Longtrack_Skaters/UK_Longtrack_Skaters/uk_longtrack_skaters.xcodeproj">
    </FileRef>
 </Workspace>
