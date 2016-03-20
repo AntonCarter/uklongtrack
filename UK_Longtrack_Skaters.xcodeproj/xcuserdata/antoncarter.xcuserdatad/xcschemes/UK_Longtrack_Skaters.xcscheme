@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61BDBD521C98961300271653"
-               BuildableName = "UK_Longtrack_Skaters.app"
+               BuildableName = "UK Longtrack.app"
                BlueprintName = "UK_Longtrack_Skaters"
-               ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+               ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61BDBD681C98961300271653"
-               BuildableName = "UK_Longtrack_SkatersTests.xctest"
+               BuildableName = "uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest"
                BlueprintName = "UK_Longtrack_SkatersTests"
-               ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+               ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61BDBD731C98961300271653"
-               BuildableName = "UK_Longtrack_SkatersUITests.xctest"
+               BuildableName = "uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest"
                BlueprintName = "UK_Longtrack_SkatersUITests"
-               ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+               ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61BDBD521C98961300271653"
-            BuildableName = "UK_Longtrack_Skaters.app"
+            BuildableName = "UK Longtrack.app"
             BlueprintName = "UK_Longtrack_Skaters"
-            ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+            ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61BDBD521C98961300271653"
-            BuildableName = "UK_Longtrack_Skaters.app"
+            BuildableName = "UK Longtrack.app"
             BlueprintName = "UK_Longtrack_Skaters"
-            ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+            ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61BDBD521C98961300271653"
-            BuildableName = "UK_Longtrack_Skaters.app"
+            BuildableName = "UK Longtrack.app"
             BlueprintName = "UK_Longtrack_Skaters"
-            ReferencedContainer = "container:UK_Longtrack_Skaters.xcodeproj">
+            ReferencedContainer = "container:uk_longtrack_skaters.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

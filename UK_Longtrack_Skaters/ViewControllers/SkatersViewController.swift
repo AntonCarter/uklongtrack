@@ -24,7 +24,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
             
         }
         
-        SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
+        //SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
 
         searchBar.showsCancelButton = true
         searchBar.delegate = self

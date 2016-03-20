@@ -46,6 +46,10 @@ class Skater{
         if let category = skaterJson["category"] as? Int {
             self.category =  String(category)
         }
+        
+        if(self.category==""){
+            self.category = "??"
+        }
     }
     
     static func GetSkatersFromJson(jsonData: NSData) -> [Skater]{

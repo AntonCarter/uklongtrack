@@ -44,17 +44,17 @@
 		6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonalBestsTableViewController.swift; path = ViewControllers/PersonalBestsTableViewController.swift; sourceTree = "<group>"; };
 		6172FED91C9A01D200E0F8CE /* Skater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
 		6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NationalRecord.swift; sourceTree = "<group>"; };
-		61BDBD531C98961300271653 /* UK Skaters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UK Skaters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BDBD531C98961300271653 /* UK Longtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UK Longtrack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD561C98961300271653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BDBD581C98961300271653 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		61BDBD5D1C98961300271653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61BDBD5F1C98961300271653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61BDBD621C98961300271653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61BDBD641C98961300271653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61BDBD691C98961300271653 /* UK_Longtrack_SkatersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UK_Longtrack_SkatersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BDBD691C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD6D1C98961300271653 /* UK_Longtrack_SkatersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UK_Longtrack_SkatersTests.swift; sourceTree = "<group>"; };
 		61BDBD6F1C98961300271653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61BDBD741C98961300271653 /* UK_Longtrack_SkatersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UK_Longtrack_SkatersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61BDBD741C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD781C98961300271653 /* UK_Longtrack_SkatersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UK_Longtrack_SkatersUITests.swift; sourceTree = "<group>"; };
 		61BDBD7A1C98961300271653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61BDBD891C98976500271653 /* SkatersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkatersViewController.swift; path = ViewControllers/SkatersViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +99,9 @@
 		61BDBD541C98961300271653 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61BDBD531C98961300271653 /* UK Skaters.app */,
-				61BDBD691C98961300271653 /* UK_Longtrack_SkatersTests.xctest */,
-				61BDBD741C98961300271653 /* UK_Longtrack_SkatersUITests.xctest */,
+				61BDBD531C98961300271653 /* UK Longtrack.app */,
+				61BDBD691C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */,
+				61BDBD741C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 			);
 			name = UK_Longtrack_Skaters;
 			productName = UK_Longtrack_Skaters;
-			productReference = 61BDBD531C98961300271653 /* UK Skaters.app */;
+			productReference = 61BDBD531C98961300271653 /* UK Longtrack.app */;
 			productType = "com.apple.product-type.application";
 		};
 		61BDBD681C98961300271653 /* UK_Longtrack_SkatersTests */ = {
@@ -194,7 +194,7 @@
 			);
 			name = UK_Longtrack_SkatersTests;
 			productName = UK_Longtrack_SkatersTests;
-			productReference = 61BDBD691C98961300271653 /* UK_Longtrack_SkatersTests.xctest */;
+			productReference = 61BDBD691C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		61BDBD731C98961300271653 /* UK_Longtrack_SkatersUITests */ = {
@@ -212,7 +212,7 @@
 			);
 			name = UK_Longtrack_SkatersUITests;
 			productName = UK_Longtrack_SkatersUITests;
-			productReference = 61BDBD741C98961300271653 /* UK_Longtrack_SkatersUITests.xctest */;
+			productReference = 61BDBD741C98961300271653 /* uk_longtrack_skaters.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -242,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 61BDBD4E1C98961300271653 /* Build configuration list for PBXProject "UK_Longtrack_Skaters" */;
+			buildConfigurationList = 61BDBD4E1C98961300271653 /* Build configuration list for PBXProject "uk_longtrack_skaters" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -446,7 +446,7 @@
 				INFOPLIST_FILE = UK_Longtrack_Skaters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-Skaters";
-				PRODUCT_NAME = "UK Skaters";
+				PRODUCT_NAME = "UK Longtrack";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -460,7 +460,7 @@
 				INFOPLIST_FILE = UK_Longtrack_Skaters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-Skaters";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "UK Longtrack";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -472,8 +472,8 @@
 				INFOPLIST_FILE = UK_Longtrack_SkatersTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-SkatersTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UK_Longtrack_Skaters.app/UK_Longtrack_Skaters";
+				PRODUCT_NAME = uk_longtrack_skaters.temp_caseinsensitive_renameTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uk_longtrack_skaters.temp_caseinsensitive_rename.app/uk_longtrack_skaters.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -484,8 +484,8 @@
 				INFOPLIST_FILE = UK_Longtrack_SkatersTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-SkatersTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UK_Longtrack_Skaters.app/UK_Longtrack_Skaters";
+				PRODUCT_NAME = uk_longtrack_skaters.temp_caseinsensitive_renameTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uk_longtrack_skaters.temp_caseinsensitive_rename.app/uk_longtrack_skaters.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -495,7 +495,7 @@
 				INFOPLIST_FILE = UK_Longtrack_SkatersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-SkatersUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uk_longtrack_skaters.temp_caseinsensitive_renameTests;
 				TEST_TARGET_NAME = UK_Longtrack_Skaters;
 				USES_XCTRUNNER = YES;
 			};
@@ -507,7 +507,7 @@
 				INFOPLIST_FILE = UK_Longtrack_SkatersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.antoncarter.net.UK-Longtrack-SkatersUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = uk_longtrack_skaters.temp_caseinsensitive_renameTests;
 				TEST_TARGET_NAME = UK_Longtrack_Skaters;
 				USES_XCTRUNNER = YES;
 			};
@@ -516,7 +516,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		61BDBD4E1C98961300271653 /* Build configuration list for PBXProject "UK_Longtrack_Skaters" */ = {
+		61BDBD4E1C98961300271653 /* Build configuration list for PBXProject "uk_longtrack_skaters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61BDBD7B1C98961300271653 /* Debug */,
