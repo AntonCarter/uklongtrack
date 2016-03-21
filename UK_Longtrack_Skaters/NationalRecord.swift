@@ -28,9 +28,9 @@ class NationalRecord{
         
         if let date = json["date"] as? String {
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "YYYY-MM-DD"
+            formatter.dateFormat = "yyyy-MM-dd"
             let actualDate = formatter.dateFromString(date)
-            formatter.dateFormat = "DD MMMM YYYY"
+            formatter.dateFormat = "dd MMMM yyyy"
             self.date =  formatter.stringFromDate(actualDate!)
         }
 
