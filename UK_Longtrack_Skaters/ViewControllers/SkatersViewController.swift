@@ -90,8 +90,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
             
             resultController.thisSkater = skater
             return resultController
-    //        presentViewController(resultController, animated: true, completion: nil)
-        
+          
         }
     
         return nil;
@@ -102,6 +101,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
         showViewController(viewControllerToCommit, sender: self)
+        
         
     }
     
@@ -232,14 +232,21 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
 
         if let indexPath = self.tableView.indexPathForSelectedRow {
             
-            let selectedSkater  = _filteredSkaters[indexPath.row]
+            var skater = Skater()
+            
+            if(_searchActive){
+                skater = _filteredSkaters[indexPath.row];
+            }else{
+                skater = _skaters[indexPath.row];
+            }
+
             let vc = segue.destinationViewController as! PersonalBestsTableViewController
-            vc.thisSkater = selectedSkater
+            vc.thisSkater = skater
         }
 
         
         
     }
-    
+
 
 }

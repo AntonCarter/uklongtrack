@@ -111,7 +111,6 @@ class BritishRecordsViewController: UITableViewController, UIViewControllerPrevi
             
             resultController.thisSkater = record.skater
             return resultController
-            //        presentViewController(resultController, animated: true, completion: nil)
             
         }
         

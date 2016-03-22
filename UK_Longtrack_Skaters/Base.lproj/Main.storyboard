@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--British Records View Controller-->
         <scene sceneID="z1i-oQ-vrB">
             <objects>
-                <tableViewController id="yUz-TK-3ih" customClass="BritishRecordsViewController" customModule="UK_Longtrack_Skaters" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yUz-TK-3ih" customClass="BritishRecordsViewController" customModule="UK_Longtrack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="nZ8-J8-fml">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +144,7 @@
         <!--Skaters View Controller-->
         <scene sceneID="D6n-fb-gJx">
             <objects>
-                <tableViewController id="7qy-rl-QMy" customClass="SkatersViewController" customModule="UK_Longtrack_Skaters" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7qy-rl-QMy" customClass="SkatersViewController" customModule="UK_Longtrack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cuT-D9-RfP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,10 +194,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3WN-kB-5Er" kind="show" identifier="pb" id="U2c-wf-dfj">
-                                        <segue key="commit" inheritsFrom="parent" id="88m-aQ-CTt"/>
-                                        <segue key="preview" inheritsFrom="commit" id="8sh-wf-uv6"/>
-                                    </segue>
+                                    <segue destination="3WN-kB-5Er" kind="show" id="5vt-So-x1L"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -244,12 +240,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0V-V8-p4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="173"/>
+            <point key="canvasLocation" x="1390" y="163"/>
         </scene>
         <!--Personal Bests-->
         <scene sceneID="AnO-go-v04">
             <objects>
-                <tableViewController storyboardIdentifier="PBViewController" id="3WN-kB-5Er" customClass="PersonalBestsTableViewController" customModule="UK_Longtrack_Skaters" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PBViewController" id="3WN-kB-5Er" customClass="PersonalBestsTableViewController" customModule="UK_Longtrack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aOF-gQ-7VL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZg-kW-K4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1452" y="-621"/>
+            <point key="canvasLocation" x="2092" y="21"/>
         </scene>
         <!--Skaters-->
         <scene sceneID="5l5-M3-ffU">
@@ -354,7 +350,4 @@
         <image name="record" width="30" height="30"/>
         <image name="skater" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="U2c-wf-dfj"/>
-    </inferredMetricsTieBreakers>
 </document>
