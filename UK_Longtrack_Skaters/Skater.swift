@@ -52,6 +52,10 @@ class Skater{
         }
     }
     
+    var FullName: String {
+        return "\(self.givenName) \(self.familyName)"
+    }
+    
     static func GetSkatersFromJson(jsonData: NSData) -> [Skater]{
         
         var skaters = [Skater]()

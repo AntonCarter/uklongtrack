@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611400BD1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611400BC1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift */; };
 		612C84FB1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C84FA1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift */; };
 		6141ECF51C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */; };
 		6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172FED91C9A01D200E0F8CE /* Skater.swift */; };
 		6172FEDC1C9B5C0500E0F8CE /* NationalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */; };
+		61B3250F1CE8874700FB9691 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3250E1CE8874700FB9691 /* AppSettings.swift */; };
+		61B325111CE888AB00FB9691 /* ApplicationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B325101CE888AB00FB9691 /* ApplicationTabBarController.swift */; };
 		61BDBD571C98961300271653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD561C98961300271653 /* AppDelegate.swift */; };
 		61BDBD591C98961300271653 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD581C98961300271653 /* FirstViewController.swift */; };
 		61BDBD5E1C98961300271653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDBD5C1C98961300271653 /* Main.storyboard */; settings = {ASSET_TAGS = (301, ); }; };
@@ -40,10 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611400BC1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSkaterTabBarItem.swift; sourceTree = "<group>"; };
 		612C84FA1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BritishRecordsViewController.swift; path = ViewControllers/BritishRecordsViewController.swift; sourceTree = "<group>"; };
 		6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonalBestsTableViewController.swift; path = ViewControllers/PersonalBestsTableViewController.swift; sourceTree = "<group>"; };
 		6172FED91C9A01D200E0F8CE /* Skater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
 		6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NationalRecord.swift; sourceTree = "<group>"; };
+		61B3250E1CE8874700FB9691 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		61B325101CE888AB00FB9691 /* ApplicationTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApplicationTabBarController.swift; path = ViewControllers/ApplicationTabBarController.swift; sourceTree = "<group>"; };
 		61BDBD531C98961300271653 /* UK Longtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UK Longtrack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDBD561C98961300271653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BDBD581C98961300271653 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				61BDBD891C98976500271653 /* SkatersViewController.swift */,
 				6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */,
 				612C84FA1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift */,
+				61B325101CE888AB00FB9691 /* ApplicationTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -155,6 +162,8 @@
 				61BDBD8C1C989F0900271653 /* SpeedSkatingResultsApi.swift */,
 				6172FED91C9A01D200E0F8CE /* Skater.swift */,
 				6172FEDB1C9B5C0500E0F8CE /* NationalRecord.swift */,
+				61B3250E1CE8874700FB9691 /* AppSettings.swift */,
+				611400BC1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -295,10 +304,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6172FEDC1C9B5C0500E0F8CE /* NationalRecord.swift in Sources */,
+				611400BD1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift in Sources */,
 				61BDBD571C98961300271653 /* AppDelegate.swift in Sources */,
+				61B325111CE888AB00FB9691 /* ApplicationTabBarController.swift in Sources */,
 				61BDBD8A1C98976500271653 /* SkatersViewController.swift in Sources */,
 				61BDBD591C98961300271653 /* FirstViewController.swift in Sources */,
 				6141ECF51C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift in Sources */,
+				61B3250F1CE8874700FB9691 /* AppSettings.swift in Sources */,
 				61BDBD8D1C989F0900271653 /* SpeedSkatingResultsApi.swift in Sources */,
 				6172FEDA1C9A01D200E0F8CE /* Skater.swift in Sources */,
 				612C84FB1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift in Sources */,

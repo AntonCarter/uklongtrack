@@ -8,36 +8,191 @@
 
 import UIKit
 
+extension UIViewController{
+    var contentViewController:UIViewController{
+        if let navcon = self as? UINavigationController{
+            return navcon.visibleViewController ?? self
+        } else{
+            return self
+        }
+    }
+}
+
 class PersonalBestsTableViewController: UITableViewController {
 
-    var thisSkater : Skater = Skater()
-    var _records : [NationalRecord] = []
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        self.title = "\(thisSkater.givenName) \(thisSkater.familyName)"
-        
-        if(thisSkater.id > 0)
-        {
-            SpeedSkatingResultsApi.sharedInstance.GetPersonalBests(thisSkater.id, completionHandler: pbHandler)
+    private var currentSkater : Skater?
+    private var _records : [NationalRecord] = []
+    
+    var thisSkater : Skater? {
+        get {
+            return currentSkater
         }
-        
+        set
+        {
+            var reloadData = false
+            
+            if newValue == nil{
+                clearCurrentSkater()
+            }
+            else {
+                if newValue?.id != currentSkater?.id {
+                    reloadData = true
+                }
+            }
+            
+            currentSkater = newValue
+
+            if reloadData {
+                setUiForSkater()
+                loadSkaterData()
+            }
+        }
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        print (self.navigationItem.hidesBackButton)
+        if let backButton = self.navigationItem.backBarButtonItem {
+            //backButton.title = "Back"
+        }
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        
 
+        if isCurrentSkater && !isCurrentApplicationSkater {
+            thisSkater = AppSettings.AppSkater
+        }
+
+        
+    }
+    
+    private func setUiForSkater()
+    {
+        meButton.hidden = false
+        if thisSkater != nil {
+            self.title = thisSkater?.FullName
+        }
+        if isCurrentSkater && isCurrentApplicationSkater {
+            meButton.setTitle("Not Me", forState: UIControlState.Normal)
+        }
+        if(!isCurrentSkater){
+            if isCurrentApplicationSkater{
+                meButton.setTitle("Not Me", forState: UIControlState.Normal)
+            }
+            else{
+                meButton.setTitle("Me", forState: UIControlState.Normal)
+            }
+        }
+        else{
+            self.tabBarItem.title = thisSkater?.givenName
+        }
+    }
+    
+    private func loadSkaterData(){
+        if let skater = thisSkater {
+            SpeedSkatingResultsApi.sharedInstance.GetPersonalBests(skater.id, completionHandler: pbHandler)
+        }
+        
+    }
+    
+    private func clearCurrentSkater(){
+        print ("I am a \(self.description)")
+        if isCurrentSkater {
+            self._records = []
+            self.reloadTableData()
+            self.navigationItem.title = ""
+            self.tabBarItem.title = "Current Skater"
+            self.view.setNeedsDisplay()
+        }
+
+    }
+
+    var isCurrentApplicationSkater: Bool {
+        if let appSkater = AppSettings.AppSkater {
+            if let skater = thisSkater{
+                return skater.id == appSkater.id
+            }
+        }
+        return false;
+    }
+    
+    var isCurrentSkater : Bool {
+        
+        if self.tabBarController?.selectedViewController?.tabBarItem is CurrentSkaterTabBarItem {
+            return true
+        }
+        return false
+        
+    }
+
+
+    internal func setTabBarItemTitle(title: String){
+        
+        if(isCurrentSkater){
+            self.tabBarController?.selectedViewController?.tabBarItem.title = title
+        }
+        
+//        if let myTabBar = self.tabBarController as? ApplicationTabBarController{
+//            if myTabBar.viewControllers?.count == 3{
+//                print(myTabBar.viewControllers![2])
+//                if let pbController = myTabBar.viewControllers![2].contentViewController as? PersonalBestsTableViewController {
+//                    print ("current title \(pbController.tabBarItem.title)")
+//                    pbController.tabBarItem.title = title
+//                    myTabBar.view.setNeedsDisplay()
+//                }
+//            }
+//        }
+//        print ("description of tabbaritem \(self.tabBarController?.selectedViewController?.tabBarItem.description)")
+//        print ("desc of self tbi \(self.tabBarItem.description)")
+    }
+    
+    @IBOutlet weak var meButton: UIButton!
+
+    @IBAction func setCurrentSkater(sender: UIButton) {
+        
+        switch(sender.currentTitle ?? ""){
+        
+        case "Me":
+            sender.setTitle("Not Me", forState: UIControlState.Normal)
+            AppSettings.AppSkater = thisSkater
+            setTabBarItemTitle((thisSkater?.givenName)!)
+
+            
+        case "Not Me":
+            sender.setTitle("Me", forState: UIControlState.Normal)
+            AppSettings.AppSkater = nil
+            if isCurrentSkater{
+                thisSkater = nil
+                setTabBarItemTitle("Current Skater")
+                meButton.hidden = true
+            }
+            
+            
+
+
+        
+        default : break
+        }
+       
+    }
     
     func pbHandler(jsonData:NSData){
         
         _records = NationalRecord.GetNationalRecordsFromJson(jsonData)
-        
+        reloadTableData()
+    }
+    
+    func reloadTableData () {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
@@ -124,6 +279,8 @@ class PersonalBestsTableViewController: UITableViewController {
     */
 
     
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -136,6 +293,6 @@ class PersonalBestsTableViewController: UITableViewController {
         }
         
     }
-
+     */
 
 }

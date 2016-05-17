@@ -58,7 +58,7 @@ class AppSettings {
         }
     }
     
-    static var AppSkater : Skater? {
+    internal static var AppSkater : Skater? {
         get{
             
             if let id = skaterId {

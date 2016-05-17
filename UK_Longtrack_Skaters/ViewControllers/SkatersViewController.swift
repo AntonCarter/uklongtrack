@@ -185,42 +185,22 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    private func selectedSkater() -> Skater? {
+        var skater: Skater?
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            
+            
+            if(_searchActive){
+                skater = _filteredSkaters[indexPath.row];
+            }else{
+                skater = _skaters[indexPath.row];
+            }
+        }
+        
+        return skater
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     
     // MARK: - Navigation
 
@@ -230,21 +210,14 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         // Pass the selected object to the new view controller.
 //        segue.destinationViewController.title = "\(_selectedSkater.givenName) \(_selectedSkater.familyName)"
 
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            
-            var skater = Skater()
-            
-            if(_searchActive){
-                skater = _filteredSkaters[indexPath.row];
-            }else{
-                skater = _skaters[indexPath.row];
-            }
-
-            let vc = segue.destinationViewController as! PersonalBestsTableViewController
-            vc.thisSkater = skater
+        var destinationvc = segue.destinationViewController
+        if let nc = destinationvc as? UINavigationController {
+            destinationvc = nc.visibleViewController ?? destinationvc
         }
-
         
+        if let vc = destinationvc as? PersonalBestsTableViewController {
+            vc.thisSkater = selectedSkater()
+        }
         
     }
 
