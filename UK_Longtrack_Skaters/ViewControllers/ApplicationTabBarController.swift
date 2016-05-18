@@ -13,6 +13,17 @@ class ApplicationTabBarController: UITabBarController, UITabBarControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        for item in self.tabBar.items! {
+            
+            if item is CurrentSkaterTabBarItem {
+                if let skater = AppSettings.AppSkater {
+                    item.title = skater.givenName
+                }
+            }
+            
+            //print("ATBC - \(item.title) is a\(item.description)")
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -41,14 +52,14 @@ class ApplicationTabBarController: UITabBarController, UITabBarControllerDelegat
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController){
         print(tabBarController.selectedIndex)
         
-        let nc = viewController as? UINavigationController
-        
-        if let vc = nc?.visibleViewController as? PersonalBestsTableViewController {
-            
-            if let skater = AppSettings.AppSkater {
-                vc.thisSkater = skater
-            }
-            
-        }
+//        let nc = viewController as? UINavigationController
+//        
+//        if let vc = nc?.visibleViewController as? PersonalBestsTableViewController {
+//            
+//            if let skater = AppSettings.AppSkater {
+//                vc.thisSkater = skater
+//            }
+//            
+//        }
     }
 }

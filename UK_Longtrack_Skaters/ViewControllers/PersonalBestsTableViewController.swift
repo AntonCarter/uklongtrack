@@ -72,6 +72,11 @@ class PersonalBestsTableViewController: UITableViewController {
         if isCurrentSkater && !isCurrentApplicationSkater {
             thisSkater = AppSettings.AppSkater
         }
+        else{
+            setUiForSkater()
+        }
+        
+        
 
         
     }
@@ -80,12 +85,16 @@ class PersonalBestsTableViewController: UITableViewController {
     {
         meButton.hidden = false
         if thisSkater != nil {
-            self.title = thisSkater?.FullName
+            self.navigationItem.title = thisSkater?.FullName
         }
-        if isCurrentSkater && isCurrentApplicationSkater {
-            meButton.setTitle("Not Me", forState: UIControlState.Normal)
-        }
-        if(!isCurrentSkater){
+        if(isCurrentSkater){
+         
+            self.navigationController?.tabBarItem.title = thisSkater?.givenName
+            if isCurrentApplicationSkater{
+                meButton.setTitle("Not Me", forState: UIControlState.Normal)
+            }
+        }else
+        {
             if isCurrentApplicationSkater{
                 meButton.setTitle("Not Me", forState: UIControlState.Normal)
             }
@@ -93,9 +102,7 @@ class PersonalBestsTableViewController: UITableViewController {
                 meButton.setTitle("Me", forState: UIControlState.Normal)
             }
         }
-        else{
-            self.tabBarItem.title = thisSkater?.givenName
-        }
+        
     }
     
     private func loadSkaterData(){
@@ -111,7 +118,7 @@ class PersonalBestsTableViewController: UITableViewController {
             self._records = []
             self.reloadTableData()
             self.navigationItem.title = ""
-            self.tabBarItem.title = "Current Skater"
+            //self.tabBarItem.title = "Current Skater"
             self.view.setNeedsDisplay()
         }
 
@@ -127,8 +134,8 @@ class PersonalBestsTableViewController: UITableViewController {
     }
     
     var isCurrentSkater : Bool {
-        
-        if self.tabBarController?.selectedViewController?.tabBarItem is CurrentSkaterTabBarItem {
+
+        if self.navigationController?.tabBarItem is CurrentSkaterTabBarItem {
             return true
         }
         return false
@@ -139,7 +146,7 @@ class PersonalBestsTableViewController: UITableViewController {
     internal func setTabBarItemTitle(title: String){
         
         if(isCurrentSkater){
-            self.tabBarController?.selectedViewController?.tabBarItem.title = title
+            //self.tabBarController?.selectedViewController?.tabBarItem.title = title
         }
         
 //        if let myTabBar = self.tabBarController as? ApplicationTabBarController{
