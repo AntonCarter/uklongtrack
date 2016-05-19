@@ -19,6 +19,7 @@ class SpeedSkatingResultsApi  {
         let url = NSURL(string: speedskatingResultUrl)
         return url!
     }
+
     
     func GetPersonalBests(skaterId: Int, completionHandler: (response: NSData) ->()){
         let search = baseURL + "personal_records.php?skater=\(skaterId)"
@@ -78,7 +79,10 @@ class SpeedSkatingResultsApi  {
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             //let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             //print(responseString)
-            completionHandler(response: data!)
+            if(data != nil){
+                completionHandler(response: data!)
+            }
+            
         }
         
         task.resume()
