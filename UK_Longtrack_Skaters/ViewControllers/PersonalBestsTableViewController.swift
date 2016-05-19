@@ -42,8 +42,10 @@ class PersonalBestsTableViewController: UITableViewController {
             
             currentSkater = newValue
 
+            setUiForSkater()
+            
             if reloadData {
-                setUiForSkater()
+                
                 loadSkaterData()
             }
         }
@@ -60,10 +62,10 @@ class PersonalBestsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
-        print (self.navigationItem.hidesBackButton)
-        if let backButton = self.navigationItem.backBarButtonItem {
-            //backButton.title = "Back"
-        }
+//        print (self.navigationItem.hidesBackButton)
+//        if let backButton = self.navigationItem.backBarButtonItem {
+//            //backButton.title = "Back"
+//        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -84,14 +86,19 @@ class PersonalBestsTableViewController: UITableViewController {
     private func setUiForSkater()
     {
         meButton.hidden = false
-        if thisSkater != nil {
-            self.navigationItem.title = thisSkater?.FullName
-        }
+        self.title = thisSkater?.FullName
+        
         if(isCurrentSkater){
          
-            self.navigationController?.tabBarItem.title = thisSkater?.givenName
             if isCurrentApplicationSkater{
+                
+                self.navigationController?.tabBarItem.title = thisSkater?.givenName
                 meButton.setTitle("Not Me", forState: UIControlState.Normal)
+            }
+            else{
+                self.navigationController?.tabBarItem.title = "Current Skater"
+                self.navigationItem.title = nil
+                meButton.hidden = true
             }
         }else
         {
@@ -99,9 +106,17 @@ class PersonalBestsTableViewController: UITableViewController {
                 meButton.setTitle("Not Me", forState: UIControlState.Normal)
             }
             else{
+                
                 meButton.setTitle("Me", forState: UIControlState.Normal)
             }
         }
+        
+//        if isCurrentSkater && AppSettings.AppSkater == nil {
+//            meButton.hidden = true
+//        }
+//        else{
+//            m
+//        }
         
     }
     
@@ -117,7 +132,8 @@ class PersonalBestsTableViewController: UITableViewController {
         if isCurrentSkater {
             self._records = []
             self.reloadTableData()
-            self.navigationItem.title = ""
+//            self.navigationItem.title = ""
+//            self.navigationController?.tabBarItem.title = "Current Skater"
             //self.tabBarItem.title = "Current Skater"
             self.view.setNeedsDisplay()
         }
@@ -143,25 +159,7 @@ class PersonalBestsTableViewController: UITableViewController {
     }
 
 
-    internal func setTabBarItemTitle(title: String){
-        
-        if(isCurrentSkater){
-            //self.tabBarController?.selectedViewController?.tabBarItem.title = title
-        }
-        
-//        if let myTabBar = self.tabBarController as? ApplicationTabBarController{
-//            if myTabBar.viewControllers?.count == 3{
-//                print(myTabBar.viewControllers![2])
-//                if let pbController = myTabBar.viewControllers![2].contentViewController as? PersonalBestsTableViewController {
-//                    print ("current title \(pbController.tabBarItem.title)")
-//                    pbController.tabBarItem.title = title
-//                    myTabBar.view.setNeedsDisplay()
-//                }
-//            }
-//        }
-//        print ("description of tabbaritem \(self.tabBarController?.selectedViewController?.tabBarItem.description)")
-//        print ("desc of self tbi \(self.tabBarItem.description)")
-    }
+
     
     @IBOutlet weak var meButton: UIButton!
 
@@ -172,7 +170,8 @@ class PersonalBestsTableViewController: UITableViewController {
         case "Me":
             sender.setTitle("Not Me", forState: UIControlState.Normal)
             AppSettings.AppSkater = thisSkater
-            setTabBarItemTitle((thisSkater?.givenName)!)
+            setUiForSkater()
+
 
             
         case "Not Me":
@@ -180,10 +179,8 @@ class PersonalBestsTableViewController: UITableViewController {
             AppSettings.AppSkater = nil
             if isCurrentSkater{
                 thisSkater = nil
-                setTabBarItemTitle("Current Skater")
-                meButton.hidden = true
             }
-            
+    
             
 
 

@@ -19,6 +19,9 @@ class ApplicationTabBarController: UITabBarController, UITabBarControllerDelegat
                 if let skater = AppSettings.AppSkater {
                     item.title = skater.givenName
                 }
+                else {
+                    item.title = "Current Skater"
+                }
             }
             
             //print("ATBC - \(item.title) is a\(item.description)")
