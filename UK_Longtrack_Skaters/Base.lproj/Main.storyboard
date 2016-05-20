@@ -251,6 +251,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No starred skater has been selected. Use the skaters tab to find a skater you wish to follow." textAlignment="center" id="OD0-4M-OPN">
+                            <rect key="frame" x="0.0" y="136" width="600" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="KwN-qh-ugt"/>
+                            </constraints>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" id="our-te-UGK">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -321,6 +332,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="NoSkaterLabel" destination="OD0-4M-OPN" id="EVV-tW-E7j"/>
                         <outlet property="meButton" destination="QAe-kU-3n1" id="NzZ-Nw-sdo"/>
                     </connections>
                 </tableViewController>

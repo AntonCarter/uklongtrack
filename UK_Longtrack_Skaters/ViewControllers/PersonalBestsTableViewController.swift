@@ -51,6 +51,7 @@ class PersonalBestsTableViewController: UITableViewController {
         }
         
     }
+    @IBOutlet weak var NoSkaterLabel: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,18 +71,23 @@ class PersonalBestsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        
 
         if isCurrentSkater && !isCurrentApplicationSkater {
             thisSkater = AppSettings.AppSkater
+
         }
         else{
             setUiForSkater()
         }
         
+
+
         
 
         
     }
+    @IBOutlet weak var NoSkaterSelectedView: InformationView!
     
     private func setUiForSkater()
     {
@@ -111,13 +117,15 @@ class PersonalBestsTableViewController: UITableViewController {
             }
         }
         
-//        if isCurrentSkater && AppSettings.AppSkater == nil {
-//            meButton.hidden = true
-//        }
-//        else{
-//            m
-//        }
-        
+        if(NoSkaterLabel != nil){
+       
+        if thisSkater == nil{
+            NoSkaterLabel.hidden = false
+        }
+        else{
+            NoSkaterLabel.hidden = true
+        }
+        }
     }
     
     private func loadSkaterData(){

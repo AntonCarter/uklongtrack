@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UK_Longtrack_Skaters/ViewControllers/PersonalBestsTableViewController.swift"
-            timestampString = "485371598.929566"
+            timestampString = "485461248.635985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "setUiForSkater()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UK_Longtrack_Skaters/ViewControllers/PersonalBestsTableViewController.swift"
-            timestampString = "485330640.101799"
+            timestampString = "485461181.099257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UK_Longtrack_Skaters/ViewControllers/PersonalBestsTableViewController.swift"
-            timestampString = "485372969.536371"
+            timestampString = "485461315.678785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "setCurrentSkater(_:)"
             landmarkType = "5">
          </BreakpointContent>
