@@ -320,11 +320,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8a2-ew-BRe">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Y9g-c3-ZdB">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QAe-kU-3n1">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                        <barButtonItem key="rightBarButtonItem" image="favourite-unselected" style="plain" id="Y9g-c3-ZdB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QAe-kU-3n1">
+                                <rect key="frame" x="547" y="5" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Me"/>
+                                <state key="normal" image="favourite-unselected"/>
                                 <connections>
                                     <action selector="setCurrentSkater:" destination="3WN-kB-5Er" eventType="touchUpInside" id="sCK-KN-LcU"/>
                                 </connections>
@@ -398,10 +398,11 @@
     </scenes>
     <resources>
         <image name="current-skater" width="30" height="30"/>
+        <image name="favourite-unselected" width="66" height="66"/>
         <image name="record" width="30" height="30"/>
         <image name="skater" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JVt-gj-ehb"/>
+        <segue reference="0r3-pa-xcI"/>
     </inferredMetricsTieBreakers>
 </document>

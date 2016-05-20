@@ -19,9 +19,49 @@ extension UIViewController{
 }
 
 class PersonalBestsTableViewController: UITableViewController {
-
+    
     private var currentSkater : Skater?
     private var _records : [NationalRecord] = []
+    
+    @IBOutlet weak var NoSkaterLabel: UITextView!
+    @IBOutlet weak var meButton: UIButton!
+    
+    @IBAction func setCurrentSkater(sender: UIButton) {
+
+        if(isCurrentApplicationSkater){
+            AppSettings.AppSkater = nil
+            if(isCurrentSkater){
+                thisSkater = nil
+                clearCurrentSkater()
+            }
+            
+        }else{
+            AppSettings.AppSkater = thisSkater
+            
+        }
+        setUiForSkater()
+        
+//        switch(sender.currentTitle ?? ""){
+//            
+//        case "Me":
+//            //sender.setTitle("Not Me", forState: UIControlState.Normal)
+//            AppSettings.AppSkater = thisSkater
+//            setUiForSkater()
+//            
+//            
+//            
+//        case "Not Me":
+//            //sender.setTitle("Me", forState: UIControlState.Normal)
+//            AppSettings.AppSkater = nil
+//            if isCurrentSkater{
+//                thisSkater = nil
+//            }
+//            
+//        default : break
+//            
+//        }
+        
+    }
     
     var thisSkater : Skater? {
         get {
@@ -41,7 +81,7 @@ class PersonalBestsTableViewController: UITableViewController {
             }
             
             currentSkater = newValue
-
+            
             setUiForSkater()
             
             if reloadData {
@@ -51,7 +91,8 @@ class PersonalBestsTableViewController: UITableViewController {
         }
         
     }
-    @IBOutlet weak var NoSkaterLabel: UITextView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,32 +103,27 @@ class PersonalBestsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        
-//        print (self.navigationItem.hidesBackButton)
-//        if let backButton = self.navigationItem.backBarButtonItem {
-//            //backButton.title = "Back"
-//        }
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        
-
         if isCurrentSkater && !isCurrentApplicationSkater {
             thisSkater = AppSettings.AppSkater
-
+            
         }
         else{
             setUiForSkater()
         }
         
-
-
-        
-
-        
     }
-    @IBOutlet weak var NoSkaterSelectedView: InformationView!
+    
+    func setImageForButton(imageName: String, button: UIButton){
+        if let image = UIImage(named: imageName) {
+            button.setImage(image, forState: .Normal)
+            button.contentVerticalAlignment = UIControlContentVerticalAlignment.Fill
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Fill
+        }
+    }
     
     private func setUiForSkater()
     {
@@ -95,11 +131,11 @@ class PersonalBestsTableViewController: UITableViewController {
         self.title = thisSkater?.FullName
         
         if(isCurrentSkater){
-         
+            
             if isCurrentApplicationSkater{
                 
                 self.navigationController?.tabBarItem.title = thisSkater?.givenName
-                meButton.setTitle("Not Me", forState: UIControlState.Normal)
+                setImageForButton("favourite-selected", button: meButton)
             }
             else{
                 self.navigationController?.tabBarItem.title = "Current Skater"
@@ -109,23 +145,25 @@ class PersonalBestsTableViewController: UITableViewController {
         }else
         {
             if isCurrentApplicationSkater{
-                meButton.setTitle("Not Me", forState: UIControlState.Normal)
+                setImageForButton("favourite-selected", button: meButton)
             }
             else{
                 
-                meButton.setTitle("Me", forState: UIControlState.Normal)
+                setImageForButton("favourite-unselected", button: meButton)
             }
         }
         
         if(NoSkaterLabel != nil){
-       
-        if thisSkater == nil{
-            NoSkaterLabel.hidden = false
+            
+            if thisSkater == nil{
+                NoSkaterLabel.hidden = false
+            }
+            else{
+                NoSkaterLabel.hidden = true
+            }
         }
-        else{
-            NoSkaterLabel.hidden = true
-        }
-        }
+        self.view.setNeedsDisplay()
+        
     }
     
     private func loadSkaterData(){
@@ -140,14 +178,11 @@ class PersonalBestsTableViewController: UITableViewController {
         if isCurrentSkater {
             self._records = []
             self.reloadTableData()
-//            self.navigationItem.title = ""
-//            self.navigationController?.tabBarItem.title = "Current Skater"
-            //self.tabBarItem.title = "Current Skater"
             self.view.setNeedsDisplay()
         }
-
+        
     }
-
+    
     var isCurrentApplicationSkater: Bool {
         if let appSkater = AppSettings.AppSkater {
             if let skater = thisSkater{
@@ -158,7 +193,7 @@ class PersonalBestsTableViewController: UITableViewController {
     }
     
     var isCurrentSkater : Bool {
-
+        
         if self.navigationController?.tabBarItem is CurrentSkaterTabBarItem {
             return true
         }
@@ -166,38 +201,6 @@ class PersonalBestsTableViewController: UITableViewController {
         
     }
 
-
-
-    
-    @IBOutlet weak var meButton: UIButton!
-
-    @IBAction func setCurrentSkater(sender: UIButton) {
-        
-        switch(sender.currentTitle ?? ""){
-        
-        case "Me":
-            sender.setTitle("Not Me", forState: UIControlState.Normal)
-            AppSettings.AppSkater = thisSkater
-            setUiForSkater()
-
-
-            
-        case "Not Me":
-            sender.setTitle("Me", forState: UIControlState.Normal)
-            AppSettings.AppSkater = nil
-            if isCurrentSkater{
-                thisSkater = nil
-            }
-    
-            
-
-
-        
-        default : break
-        }
-       
-    }
-    
     func pbHandler(jsonData:NSData){
         
         _records = NationalRecord.GetNationalRecordsFromJson(jsonData)
@@ -209,24 +212,24 @@ class PersonalBestsTableViewController: UITableViewController {
             self.tableView.reloadData()
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return _records.count
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("recordCell", forIndexPath: indexPath)
@@ -236,11 +239,11 @@ class PersonalBestsTableViewController: UITableViewController {
         if let distanceLabel = cell.viewWithTag(201) as? UILabel {
             distanceLabel.text = String(record.distance)
         }
-
+        
         if let timeLabel = cell.viewWithTag(202) as? UILabel {
             timeLabel.text = String(record.time)
         }
-
+        
         if let locationLabel = cell.viewWithTag(203) as? UILabel {
             locationLabel.text = record.location
         }
@@ -250,61 +253,61 @@ class PersonalBestsTableViewController: UITableViewController {
         }
         
         // Configure the cell...
-
+        
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if ((sender?.isKindOfClass(UITableViewCell)) != nil){
-            print("cell")
-        }
-        
-    }
+     // Override to support conditional editing of the table view.
+     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
      */
-
+    
+    /*
+     // Override to support editing the table view.
+     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+     // Delete the row from the data source
+     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+     } else if editingStyle == .Insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
+    /*
+     // Override to support rearranging the table view.
+     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     
+     }
+     */
+    
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     
+     if ((sender?.isKindOfClass(UITableViewCell)) != nil){
+     print("cell")
+     }
+     
+     }
+     */
+    
 }
