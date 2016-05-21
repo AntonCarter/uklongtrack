@@ -12,7 +12,7 @@ import Foundation
 struct DemoData
 {
     //static let Stanford = "http://comm.stanford.edu/wp-content/uploads/2013/01/stanford-campus.png"
-    
+    static let CalendarUrl = "http://www.uklongtrack.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&xml=true"
     static let EventImages = [
         "DeUithof" : "http://i0.wp.com/www.uklongtrack.org/wp-content/uploads/2016/05/Screen-Shot-2016-04-10-at-16.54.42.png",
         "BritishChampionships" : "http://i0.wp.com/www.uklongtrack.org/wp-content/uploads/2016/05/Screen-Shot-2016-04-10-at-16.54.42.png"
