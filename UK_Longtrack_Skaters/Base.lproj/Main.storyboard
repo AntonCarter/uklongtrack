@@ -18,8 +18,8 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sy-jb-wXG">
-                                    <rect key="frame" x="227" y="-5" width="146" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sy-jb-wXG">
+                                    <rect key="frame" x="227" y="-7" width="146" height="33"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="146" id="BLD-yV-NV3"/>
                                     </constraints>
@@ -108,7 +108,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLL-pS-xxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="179"/>
+            <point key="canvasLocation" x="-683" y="-1052"/>
         </scene>
         <!--Application Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -128,7 +128,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1136" y="-612"/>
+            <point key="canvasLocation" x="-1456" y="-1843"/>
         </scene>
         <!--UK Skaters-->
         <scene sceneID="D6n-fb-gJx">
@@ -151,35 +151,49 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skaters Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-p6-gMs">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skaters Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgE-p6-gMs">
                                             <rect key="frame" x="8" y="11" width="381" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="381" id="HCK-4H-OQo"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="gender" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-V6-gog">
-                                            <rect key="frame" x="506" y="4" width="63" height="14"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-5G-R1b">
-                                            <rect key="frame" x="478" y="13" width="69" height="27"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-z9-yQ0">
-                                            <rect key="frame" x="539" y="13" width="30" height="27"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xwN-Df-mk5">
+                                            <rect key="frame" x="514" y="7" width="73" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="gender" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-V6-gog">
+                                                    <rect key="frame" x="0.0" y="0.0" width="73" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eHr-c1-qrL">
+                                                    <rect key="frame" x="0.0" y="15" width="73" height="15"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-5G-R1b">
+                                                            <rect key="frame" x="0.0" y="0.0" width="52" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-z9-yQ0">
+                                                            <rect key="frame" x="57" y="0.0" width="16" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9Km-z9-yQ0" secondAttribute="trailing" constant="7" id="0xp-Xc-lc6"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zgS-V6-gog" secondAttribute="trailing" constant="7" id="Ql6-0P-grb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3Qf-5G-R1b" secondAttribute="trailing" constant="29" id="ZDA-PC-dqs"/>
+                                        <constraint firstItem="KgE-p6-gMs" firstAttribute="centerY" secondItem="zAn-vR-5Jn" secondAttribute="centerY" id="8dV-fP-WlI"/>
+                                        <constraint firstItem="KgE-p6-gMs" firstAttribute="leading" secondItem="zAn-vR-5Jn" secondAttribute="leadingMargin" id="Ch2-PL-gPS"/>
+                                        <constraint firstItem="xwN-Df-mk5" firstAttribute="trailing" secondItem="zAn-vR-5Jn" secondAttribute="trailingMargin" id="CwZ-tv-Q1H"/>
+                                        <constraint firstItem="xwN-Df-mk5" firstAttribute="centerY" secondItem="KgE-p6-gMs" secondAttribute="centerY" id="frh-6F-4B9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -199,7 +213,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0V-V8-p4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="-612"/>
+            <point key="canvasLocation" x="60" y="-1843"/>
         </scene>
         <!--Personal Bests Table View Controller-->
         <scene sceneID="AnO-go-v04">
@@ -319,7 +333,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZg-kW-K4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1311" y="-207"/>
+            <point key="canvasLocation" x="991" y="-1438"/>
         </scene>
         <!--Skaters-->
         <scene sceneID="5l5-M3-ffU">
@@ -336,7 +350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9d-bz-lXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-341" y="-612"/>
+            <point key="canvasLocation" x="-661" y="-1843"/>
         </scene>
         <!--British Records-->
         <scene sceneID="zyI-iO-YuF">
@@ -355,7 +369,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90w-nS-ToK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1136" y="173"/>
+            <point key="canvasLocation" x="-1456" y="-1058"/>
         </scene>
         <!--Current Skater-->
         <scene sceneID="HKU-r9-DQG">
@@ -374,7 +388,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzm-ht-VEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352" y="185"/>
+            <point key="canvasLocation" x="32" y="-1046"/>
         </scene>
     </scenes>
     <resources>
@@ -384,6 +398,6 @@
         <image name="skater" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0r3-pa-xcI"/>
+        <segue reference="JVt-gj-ehb"/>
     </inferredMetricsTieBreakers>
 </document>
