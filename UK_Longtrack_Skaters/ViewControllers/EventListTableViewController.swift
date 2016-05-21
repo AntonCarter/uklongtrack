@@ -17,6 +17,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         static let Location = 303
         static let ImageView = 304
     }
+    var dataloaded = false
     
     private var _eventData : [Event] = []
     var parser = NSXMLParser()
@@ -54,6 +55,9 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     
     func beginParsing()
     {
+        if !dataloaded {
+            
+    
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             self.spinner?.startAnimating()
             self.parser = NSXMLParser(contentsOfURL:(NSURL(string:DemoData.CalendarUrl))!)!
@@ -64,7 +68,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
                 self.spinner?.stopAnimating()
             }
         }
-        
+    }
         
         
     }
@@ -135,6 +139,9 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             }
             
         }
+    }
+    func parserDidEndDocument(parser: NSXMLParser) {
+        dataloaded = true
     }
     
     override func didReceiveMemoryWarning() {
