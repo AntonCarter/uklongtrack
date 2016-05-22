@@ -71,7 +71,7 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
 
-            if let control = cell.viewWithTag(CellTags.Details) as? UILabel {
+            if let control = cell.viewWithTag(CellTags.Details) as? UITextView {
                 if let value = event.EventDetails {
                     control.text = value
                 }

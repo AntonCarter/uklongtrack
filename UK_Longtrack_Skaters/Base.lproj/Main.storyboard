@@ -474,11 +474,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="401" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-qS-A11">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="152"/>
+                                        <imageView userInteractionEnabled="NO" tag="401" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-qS-A11">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="253"/>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="zKU-MQ-29S" userLabel="DateStackView">
-                                            <rect key="frame" x="8" y="160" width="32" height="45"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="zKU-MQ-29S" userLabel="DateStackView">
+                                            <rect key="frame" x="8" y="261" width="32" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="404" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxw-ax-b6d">
                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="33"/>
@@ -487,37 +487,34 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="405" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-eA-rWF">
-                                                    <rect key="frame" x="3" y="28" width="27" height="17"/>
+                                                    <rect key="frame" x="3" y="28" width="26" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rxD-eA-rWF" firstAttribute="leading" secondItem="zKU-MQ-29S" secondAttribute="leading" constant="3" id="YC4-79-gHZ"/>
+                                            </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G0-3L-q7i">
-                                            <rect key="frame" x="22" y="212" width="557" height="1"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G0-3L-q7i">
+                                            <rect key="frame" x="-1386" y="314" width="3373" height="1"/>
                                             <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="fPg-AJ-3em"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9o-ge-s4L">
-                                            <rect key="frame" x="8" y="221" width="53" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9o-ge-s4L">
+                                            <rect key="frame" x="8" y="325" width="45" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="406" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Detail Contents" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="I1K-yI-iNF">
-                                            <rect key="frame" x="15" y="241" width="571" height="141"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="97" id="fLw-lj-8xz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OM6-8w-87p">
-                                            <rect key="frame" x="48" y="158" width="519" height="50"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OM6-8w-87p">
+                                            <rect key="frame" x="48" y="258" width="519" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jAe-fZ-SPN">
                                                     <rect key="frame" x="0.0" y="0.0" width="519" height="33"/>
@@ -533,22 +530,34 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="406" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-ni-T4R">
+                                            <rect key="frame" x="8" y="341" width="584" height="33"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                        </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EyM-qS-A11" firstAttribute="top" secondItem="fJ3-Ao-IQD" secondAttribute="top" id="3h1-Sz-q2M"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="OM6-8w-87p" secondAttribute="trailing" constant="25" id="4wR-GD-alO"/>
-                                        <constraint firstItem="OM6-8w-87p" firstAttribute="leading" secondItem="zKU-MQ-29S" secondAttribute="trailing" constant="8" symbolic="YES" id="EKf-vl-DsK"/>
-                                        <constraint firstItem="I1K-yI-iNF" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leadingMargin" constant="7" id="OLq-jk-PK9"/>
-                                        <constraint firstItem="OM6-8w-87p" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leading" constant="48" id="TgK-qe-XUS"/>
-                                        <constraint firstItem="EyM-qS-A11" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leading" id="Ttq-oO-05Y"/>
-                                        <constraint firstItem="EyM-qS-A11" firstAttribute="centerX" secondItem="I1K-yI-iNF" secondAttribute="centerX" id="c5G-k9-4gK"/>
-                                        <constraint firstItem="6G0-3L-q7i" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leadingMargin" constant="14" id="g5A-ub-ewe"/>
-                                        <constraint firstItem="I1K-yI-iNF" firstAttribute="bottom" secondItem="fJ3-Ao-IQD" secondAttribute="bottomMargin" id="gXf-US-THe"/>
-                                        <constraint firstItem="OM6-8w-87p" firstAttribute="top" secondItem="fJ3-Ao-IQD" secondAttribute="top" constant="158" id="gdi-5H-jhx"/>
-                                        <constraint firstItem="OM6-8w-87p" firstAttribute="centerY" secondItem="zKU-MQ-29S" secondAttribute="centerY" id="nDf-kQ-fD7"/>
-                                        <constraint firstAttribute="trailing" secondItem="EyM-qS-A11" secondAttribute="trailing" id="rIf-Ym-OHe"/>
-                                        <constraint firstItem="OM6-8w-87p" firstAttribute="top" secondItem="EyM-qS-A11" secondAttribute="bottom" constant="6" id="vfz-9a-ntw"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="6G0-3L-q7i" secondAttribute="trailing" constant="14" id="z9F-YE-ki6"/>
+                                        <constraint firstItem="q8F-ni-T4R" firstAttribute="top" secondItem="S9o-ge-s4L" secondAttribute="bottom" constant="3" id="3Gk-sQ-NN5"/>
+                                        <constraint firstItem="6G0-3L-q7i" firstAttribute="trailing" secondItem="q8F-ni-T4R" secondAttribute="trailing" id="AAx-Dq-BpL"/>
+                                        <constraint firstItem="S9o-ge-s4L" firstAttribute="top" secondItem="6G0-3L-q7i" secondAttribute="bottom" constant="10" id="Inv-sh-AU0"/>
+                                        <constraint firstItem="6G0-3L-q7i" firstAttribute="top" secondItem="OM6-8w-87p" secondAttribute="bottom" constant="6" id="KI8-b7-LbB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="OM6-8w-87p" secondAttribute="trailing" constant="25" id="LtF-Il-hJy"/>
+                                        <constraint firstItem="EyM-qS-A11" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leading" id="Mdw-Tp-pbP"/>
+                                        <constraint firstItem="zKU-MQ-29S" firstAttribute="centerY" secondItem="OM6-8w-87p" secondAttribute="centerY" id="NNB-ts-ymA"/>
+                                        <constraint firstItem="zKU-MQ-29S" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leadingMargin" id="QBz-xn-01k"/>
+                                        <constraint firstItem="EyM-qS-A11" firstAttribute="centerX" secondItem="6G0-3L-q7i" secondAttribute="centerX" id="bFm-PO-DiR"/>
+                                        <constraint firstItem="OM6-8w-87p" firstAttribute="leading" secondItem="zKU-MQ-29S" secondAttribute="trailing" constant="8" symbolic="YES" id="bK6-qP-GQ7"/>
+                                        <constraint firstItem="EyM-qS-A11" firstAttribute="top" secondItem="fJ3-Ao-IQD" secondAttribute="top" id="een-RD-dWf"/>
+                                        <constraint firstItem="OM6-8w-87p" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leading" constant="48" id="ehx-nc-vPR"/>
+                                        <constraint firstItem="q8F-ni-T4R" firstAttribute="leading" secondItem="fJ3-Ao-IQD" secondAttribute="leadingMargin" constant="5" id="hlg-65-mXh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="q8F-ni-T4R" secondAttribute="bottom" constant="4" id="ihs-Iz-6Zv"/>
+                                        <constraint firstItem="6G0-3L-q7i" firstAttribute="leading" secondItem="q8F-ni-T4R" secondAttribute="leading" id="ijn-ME-D4O"/>
+                                        <constraint firstItem="zKU-MQ-29S" firstAttribute="top" secondItem="EyM-qS-A11" secondAttribute="bottom" constant="8" symbolic="YES" id="nBM-67-Zro"/>
+                                        <constraint firstAttribute="trailing" secondItem="EyM-qS-A11" secondAttribute="trailing" id="qiz-LE-YJ7"/>
+                                        <constraint firstItem="zKU-MQ-29S" firstAttribute="leading" secondItem="S9o-ge-s4L" secondAttribute="leading" id="rPt-1R-70k"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
