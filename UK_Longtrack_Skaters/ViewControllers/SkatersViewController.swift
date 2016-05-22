@@ -20,9 +20,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         super.viewDidLoad()
         
         if( traitCollection.forceTouchCapability == .Available){
-            
             registerForPreviewingWithDelegate(self, sourceView: view)
-            
         }
         
         //SpeedSkatingResultsApi.sharedInstance.GetSkatersJson(handleSkaters)
@@ -41,6 +39,10 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         
         UIApplication.sharedApplication().openURL(SpeedSkatingResultsApi.GetWebUrl())
         
+    }
+    
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        dismissKeyboard()
     }
     
     func removeDuplicates(skaters: [Skater]) -> [Skater] {
@@ -88,6 +90,15 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else {return nil}
+        
+        
+   
+            
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            previewingContext.sourceRect = cell.frame
+        }
+            
+        
         let skater = _filteredSkaters[indexPath.row]
         
        
@@ -104,6 +115,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+  
         
         showViewController(viewControllerToCommit, sender: self)
         
@@ -152,6 +164,16 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
 
     @IBOutlet weak var search: UISearchBar!
     
+    override func tableView(tableView: UITableView,
+                              willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        dismissKeyboard()
+        return indexPath
+        
+    }
+//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+//        self.view.endEditing(true);
+//    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("skaterCell", forIndexPath: indexPath)
@@ -166,11 +188,6 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
             }else{
                 skater = _skaters[indexPath.row];
             }
-            
-            
-            
-            
-            
             
             let fn = skater.familyName
             let gn = skater.givenName
