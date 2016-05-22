@@ -42,9 +42,16 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         static let Title = "summary"
         static let Locaion = "location"
         static let ImageUrl = "x-wp-images-url"
+        static let Details = "description"
     }
     
-    var eventElements = [Elements.EventStart: "", Elements.Title: "", Elements.Locaion: "", Elements.ImageUrl: ""]
+    var eventElements = [
+        Elements.EventStart: "",
+        Elements.Title: "",
+        Elements.Locaion: "",
+        Elements.ImageUrl: "",
+        Elements.Details: ""
+    ]
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +142,8 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             let e = Event()
             e.EventTitle = eventElements[Elements.Title]
             e.EventLocation = eventElements[Elements.Locaion]
+            e.EventDetails = eventElements[Elements.Details]
+            
             e.EventImageUrl = ParseImageUrl(eventElements[Elements.ImageUrl] ?? "")
             if let dateString = eventElements[Elements.EventStart] {
                             let formatter = NSDateFormatter()
@@ -285,14 +294,30 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
      }
      */
     
-    /*
+    private func selectedEvent() -> Event? {
+        var event: Event?
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+                event = _eventData[indexPath.row];
+        }
+        
+        return event
+    }
+    
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        var destinationvc = segue.destinationViewController
+        if let nc = destinationvc as? UINavigationController {
+            destinationvc = nc.visibleViewController ?? destinationvc
+        }
+        
+        if let vc = destinationvc as? EventDetailTableViewController {
+            vc.EventDetail = selectedEvent()
+        }
      }
-     */
+    
     
 }

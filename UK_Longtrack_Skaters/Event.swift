@@ -14,5 +14,6 @@ class Event {
     var EventDate: NSDate?
     var EventLocation: String?
     var EventImageUrl: NSURL?
+    var EventDetails: String?
     
 }
