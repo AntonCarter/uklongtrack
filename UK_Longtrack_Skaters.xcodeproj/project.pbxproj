@@ -25,6 +25,10 @@
 		61BDBD791C98961300271653 /* UK_Longtrack_SkatersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD781C98961300271653 /* UK_Longtrack_SkatersUITests.swift */; };
 		61BDBD8A1C98976500271653 /* SkatersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD891C98976500271653 /* SkatersViewController.swift */; };
 		61BDBD8D1C989F0900271653 /* SpeedSkatingResultsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BDBD8C1C989F0900271653 /* SpeedSkatingResultsApi.swift */; };
+		61D9268C1CF08E5A0029D530 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D9268B1CF08E5A0029D530 /* EventListTableViewController.swift */; };
+		61D9268E1CF08ECF0029D530 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D9268D1CF08ECF0029D530 /* Event.swift */; };
+		61D926911CF098410029D530 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D926901CF098410029D530 /* DemoData.swift */; };
+		61D926931CF0997F0029D530 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D926921CF0997F0029D530 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		61BDBD7A1C98961300271653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61BDBD891C98976500271653 /* SkatersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkatersViewController.swift; path = ViewControllers/SkatersViewController.swift; sourceTree = "<group>"; };
 		61BDBD8C1C989F0900271653 /* SpeedSkatingResultsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedSkatingResultsApi.swift; sourceTree = "<group>"; };
+		61D9268B1CF08E5A0029D530 /* EventListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListTableViewController.swift; path = ViewControllers/EventListTableViewController.swift; sourceTree = "<group>"; };
+		61D9268D1CF08ECF0029D530 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		61D926901CF098410029D530 /* DemoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		61D926921CF0997F0029D530 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = "../../../../../../../Downloads/Cassini L8/Cassini/ImageViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,7 @@
 		61BDBD551C98961300271653 /* UK_Longtrack_Skaters */ = {
 			isa = PBXGroup;
 			children = (
+				61D9268F1CF098300029D530 /* DemoData */,
 				61BDBD8B1C989EF000271653 /* Classes */,
 				61BDBD561C98961300271653 /* AppDelegate.swift */,
 				61BDBD581C98961300271653 /* FirstViewController.swift */,
@@ -161,10 +170,12 @@
 		61BDBD881C98972100271653 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				61D926921CF0997F0029D530 /* ImageViewController.swift */,
 				61BDBD891C98976500271653 /* SkatersViewController.swift */,
 				6141ECF41C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift */,
 				612C84FA1C9DCA8800F3AAF9 /* BritishRecordsViewController.swift */,
 				61B325101CE888AB00FB9691 /* ApplicationTabBarController.swift */,
+				61D9268B1CF08E5A0029D530 /* EventListTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,8 +189,17 @@
 				61B3250E1CE8874700FB9691 /* AppSettings.swift */,
 				611400BC1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift */,
 				6141C03C1CEE357C00E4C27F /* Reachability.swift */,
+				61D9268D1CF08ECF0029D530 /* Event.swift */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		61D9268F1CF098300029D530 /* DemoData */ = {
+			isa = PBXGroup;
+			children = (
+				61D926901CF098410029D530 /* DemoData.swift */,
+			);
+			name = DemoData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +340,13 @@
 				6172FEDC1C9B5C0500E0F8CE /* NationalRecord.swift in Sources */,
 				611400BD1CEBAA100075FDB8 /* CurrentSkaterTabBarItem.swift in Sources */,
 				6141C03D1CEE357C00E4C27F /* Reachability.swift in Sources */,
+				61D926931CF0997F0029D530 /* ImageViewController.swift in Sources */,
 				61BDBD571C98961300271653 /* AppDelegate.swift in Sources */,
+				61D9268E1CF08ECF0029D530 /* Event.swift in Sources */,
 				61B325111CE888AB00FB9691 /* ApplicationTabBarController.swift in Sources */,
 				61BDBD8A1C98976500271653 /* SkatersViewController.swift in Sources */,
+				61D9268C1CF08E5A0029D530 /* EventListTableViewController.swift in Sources */,
+				61D926911CF098410029D530 /* DemoData.swift in Sources */,
 				61BDBD591C98961300271653 /* FirstViewController.swift in Sources */,
 				6141ECF51C9DA7AD0037DD2D /* PersonalBestsTableViewController.swift in Sources */,
 				61B3250F1CE8874700FB9691 /* AppSettings.swift in Sources */,

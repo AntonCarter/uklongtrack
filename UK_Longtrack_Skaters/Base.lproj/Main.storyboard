@@ -164,13 +164,13 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xwN-Df-mk5">
                                             <rect key="frame" x="514" y="7" width="73" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="gender" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-V6-gog">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gender" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-V6-gog">
                                                     <rect key="frame" x="0.0" y="0.0" width="73" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eHr-c1-qrL">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eHr-c1-qrL">
                                                     <rect key="frame" x="0.0" y="15" width="73" height="15"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-5G-R1b">
@@ -179,7 +179,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-z9-yQ0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-z9-yQ0">
                                                             <rect key="frame" x="57" y="0.0" width="16" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -236,7 +236,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <state key="normal" title="speedskatingresults.com"/>
                                     <connections>
-                                        <action selector="resultsLinkClicked:" destination="yUz-TK-3ih" eventType="touchUpInside" id="5h3-VS-2aP"/>
+                                        <action selector="resultsLinkClicked:" destination="3WN-kB-5Er" eventType="touchUpInside" id="914-Tf-ckv"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -440,7 +440,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Events" id="xT7-M1-SK4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="088-b7-kgR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="RefreshData:" destination="k7S-lj-NZZ" eventType="valueChanged" id="G6h-yF-EZ7"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
+                        <outlet property="RefreshView" destination="088-b7-kgR" id="Ua2-OZ-zez"/>
                         <outlet property="spinner" destination="y0B-hu-9SG" id="GDk-Sa-QTu"/>
                     </connections>
                 </tableViewController>

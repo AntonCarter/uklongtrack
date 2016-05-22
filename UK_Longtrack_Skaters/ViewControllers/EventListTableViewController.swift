@@ -11,6 +11,18 @@ import UIKit
 class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var RefreshView: UIRefreshControl!
+    
+    @IBAction func RefreshData(sender: UIRefreshControl) {
+        
+        dataloaded = false;
+        _eventData = [Event]()
+        beginParsing()
+        
+        
+    }
+    
     private struct CellTags{
         static let Title = 301
         static let Date = 302
@@ -49,6 +61,8 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     
     override func viewWillAppear(animated: Bool) {
 
+        RefreshView.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
         beginParsing()
         
     }
@@ -65,6 +79,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             self.parser.parse()
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView!.reloadData()
+                self.RefreshView.endRefreshing()
                 self.spinner?.stopAnimating()
             }
         }

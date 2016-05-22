@@ -13,6 +13,7 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
     var _skaters:[Skater] = []
     var _filteredSkaters:[Skater] = []
     var _searchActive = false
+    var _updatingResults = false
     
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
@@ -64,10 +65,14 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
         let newSkaters = Skater.GetSkatersFromJson(skaterData)//.sort(){$0.givenName > $1.givenName}
         
         if(newSkaters.count>0){
-            _filteredSkaters.appendContentsOf(newSkaters)
-            _filteredSkaters = removeDuplicates(_filteredSkaters)
+            var r = [Skater]()
+            r.appendContentsOf(_filteredSkaters)
+            r.appendContentsOf(newSkaters)
+            r = removeDuplicates(r)
           
-            _filteredSkaters.sortInPlace({$0.familyName < $1.familyName})
+            r.sortInPlace({$0.familyName < $1.familyName})
+            _filteredSkaters = r
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
@@ -148,38 +153,49 @@ class SkatersViewController: UITableViewController, UISearchBarDelegate, UIViewC
     @IBOutlet weak var search: UISearchBar!
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("skaterCell", forIndexPath: indexPath)
-        var skater = Skater()
+        let rowIndex = indexPath.row
         
-        if(_searchActive){
-            skater = _filteredSkaters[indexPath.row];
-        }else{
-            skater = _skaters[indexPath.row];
-        }
-        
-        
-        let fn = skater.familyName
-        let gn = skater.givenName
-        
-        // Configure the cell...
-        if let nameLabel = cell.viewWithTag(100) as? UILabel {
-            nameLabel.text = "\(gn) \(fn)"
-        }
-
-        if let genderLabel = cell.viewWithTag(101) as? UILabel {
-            if(skater.gender == "m"){
-                genderLabel.text = "Male"
-            }else if(skater.gender == "f"){
-                genderLabel.text = "Female"
+        if rowIndex < _filteredSkaters.count {
+            var skater = Skater()
+            
+            if(_searchActive){
+                skater = _filteredSkaters[rowIndex
+                ];
+            }else{
+                skater = _skaters[indexPath.row];
             }
-            else{
-                genderLabel.text = ""
+            
+            
+            
+            
+            
+            
+            let fn = skater.familyName
+            let gn = skater.givenName
+            
+            // Configure the cell...
+            if let nameLabel = cell.viewWithTag(100) as? UILabel {
+                nameLabel.text = "\(gn) \(fn)"
+            }
+            
+            if let genderLabel = cell.viewWithTag(101) as? UILabel {
+                if(skater.gender == "m"){
+                    genderLabel.text = "Male"
+                }else if(skater.gender == "f"){
+                    genderLabel.text = "Female"
+                }
+                else{
+                    genderLabel.text = ""
+                }
+            }
+            
+            if let categoryLabel = cell.viewWithTag(102) as? UILabel {
+                categoryLabel.text = "\(skater.category)"
             }
         }
         
-        if let categoryLabel = cell.viewWithTag(102) as? UILabel {
-            categoryLabel.text = "\(skater.category)"
-        }
         
         
         return cell

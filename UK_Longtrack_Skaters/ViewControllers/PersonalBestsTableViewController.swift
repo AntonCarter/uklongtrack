@@ -26,6 +26,9 @@ class PersonalBestsTableViewController: UITableViewController {
     @IBOutlet weak var NoSkaterLabel: UITextView!
     @IBOutlet weak var meButton: UIButton!
     
+    @IBAction func resultsLinkClicked(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(SpeedSkatingResultsApi.GetWebUrl())
+    }
     @IBAction func setCurrentSkater(sender: UIButton) {
 
         if(isCurrentApplicationSkater){
