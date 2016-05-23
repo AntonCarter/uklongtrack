@@ -11,15 +11,14 @@ import UIKit
 class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
     @IBOutlet weak var RefreshView: UIRefreshControl!
     
     @IBAction func RefreshData(sender: UIRefreshControl) {
         
         dataloaded = false;
-        _eventData = [Event]()
+        isRefreshing = true;
+        _eventRefreshData = [Event]()
         beginParsing()
-        
         
     }
     
@@ -29,12 +28,15 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         static let Location = 303
         static let ImageView = 304
     }
-    var dataloaded = false
+    
+    private var dataloaded = false
+    private var isRefreshing = false
     
     private var _eventData : [Event] = []
-    var parser = NSXMLParser()
-    var element = NSString()
-    var isEventElement = false
+    private var _eventRefreshData : [Event] = []
+    private var parser = NSXMLParser()
+    private var element = NSString()
+    private var isEventElement = false
     
     struct Elements {
         static let Event = "vevent"
@@ -52,11 +54,11 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         Elements.ImageUrl: "",
         Elements.Details: ""
     ]
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //_eventData = DemoData.GetEvents()
-
+        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -67,10 +69,12 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-
+        
         RefreshView.attributedTitle = NSAttributedString(string: "Pull to refresh")
         
-        beginParsing()
+        if(!isRefreshing){
+            beginParsing()
+        }
         
     }
     
@@ -78,21 +82,18 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     {
         if !dataloaded {
             
-    
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            self.spinner?.startAnimating()
-            self.parser = NSXMLParser(contentsOfURL:(NSURL(string:DemoData.CalendarUrl))!)!
-            self.parser.delegate = self
-            self.parser.parse()
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView!.reloadData()
-                self.RefreshView.endRefreshing()
-                self.spinner?.stopAnimating()
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                self.spinner?.startAnimating()
+                self.parser = NSXMLParser(contentsOfURL:(NSURL(string:DemoData.CalendarUrl))!)!
+                self.parser.delegate = self
+                self.parser.parse()
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView!.reloadData()
+                    self.RefreshView.endRefreshing()
+                    self.spinner?.stopAnimating()
+                }
             }
         }
-    }
-        
-        
     }
     
     
@@ -111,17 +112,6 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             eventElements[element as String]?.appendContentsOf(string)
         }
         
-        
-        //        if element.isEqualToString(Elements.Title) {
-        //
-        //        } else if element.isEqualToString(Elements.Locaion) {
-        //            if(
-        //            parseEvent.EventLocation = string
-        //        } else if element.isEqualToString(Elements.EventStart) {
-        //            let formatter = NSDateFormatter()
-        //            formatter.dateFormat = "yyyyMMdd"
-        //            parseEvent.EventDate = formatter.dateFromString(string)
-        //        }
     }
     
     func ParseImageUrl(url: String) -> NSURL {
@@ -146,16 +136,16 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             
             e.EventImageUrl = ParseImageUrl(eventElements[Elements.ImageUrl] ?? "")
             if let dateString = eventElements[Elements.EventStart] {
-                            let formatter = NSDateFormatter()
-                            formatter.dateFormat = "yyyyMMdd\n"
-                            e.EventDate = formatter.dateFromString(dateString)
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "yyyyMMdd\n"
+                e.EventDate = formatter.dateFromString(dateString)
                 
                 
             }
             
             
             
-            _eventData.append(e)
+            _eventRefreshData.append(e)
             isEventElement = false
             
             for key in eventElements.keys {
@@ -165,7 +155,11 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         }
     }
     func parserDidEndDocument(parser: NSXMLParser) {
+        
+        _eventData = _eventRefreshData
+        isRefreshing = false
         dataloaded = true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -216,99 +210,24 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         
         if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
             if let value = event.EventImageUrl {
-                fetchImage(value, imageView:imageView)
+                ImageManager.fetchImage(value, imageView:imageView)
             }
         }
         
         return cell
     }
     
-    private func fetchImage(imageURL: NSURL?, imageView: UIImageView) {
-        
-        if let url = imageURL {
-            // fire up the spinner
-            // because we're about to fork something off on another thread
-            // spinner?.startAnimating()
-            // put a closure on the "user initiated" system queue
-            // this closure does NSData(contentsOfURL:) which blocks
-            // waiting for network response
-            // it's fine for it to block the "user initiated" queue
-            // because that's a concurrent queue
-            // (so other closures on that queue can run concurrently even as this one's blocked)
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-                let contentsOfURL = NSData(contentsOfURL: url) // blocks! can't be on main queue!
-                // now that we got the data from the network
-                // we want to put it up in the UI
-                // but we can only do that on the main queue
-                // so we queue up a closure here to do that
-                dispatch_async(dispatch_get_main_queue()) {
-                    // since it could take a long time to fetch the image data
-                    // we make sure here that the image we fetched
-                    // is still the one this ImageViewController wants to display!
-                    // you must always think of these sorts of things
-                    // when programming asynchronously
-                    
-                    if let imageData = contentsOfURL {
-                        imageView.image = UIImage(data: imageData)!
-                        //  imageView.setNeedsDisplay()
-                        // image's set will stop the spinner animating
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
     private func selectedEvent() -> Event? {
         var event: Event?
         
         if let indexPath = self.tableView.indexPathForSelectedRow {
-                event = _eventData[indexPath.row];
+            event = _eventData[indexPath.row];
         }
         
         return event
     }
     
-
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destinationvc = segue.destinationViewController
         if let nc = destinationvc as? UINavigationController {
             destinationvc = nc.visibleViewController ?? destinationvc
@@ -317,7 +236,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         if let vc = destinationvc as? EventDetailTableViewController {
             vc.EventDetail = selectedEvent()
         }
-     }
+    }
     
     
 }
