@@ -380,11 +380,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="y0B-hu-9SG">
-                            <rect key="frame" x="0.0" y="170" width="600" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="78" id="fSh-mM-53R">
                                 <rect key="frame" x="0.0" y="92" width="600" height="78"/>
@@ -451,7 +446,6 @@
                     </refreshControl>
                     <connections>
                         <outlet property="RefreshView" destination="088-b7-kgR" id="Ua2-OZ-zez"/>
-                        <outlet property="spinner" destination="y0B-hu-9SG" id="GDk-Sa-QTu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPT-6h-EWg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,16 +10,25 @@ import UIKit
 
 class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var RefreshView: UIRefreshControl!
     
     @IBAction func RefreshData(sender: UIRefreshControl) {
         
-        dataloaded = false;
-        isRefreshing = true;
+        refreshData()
+        
+    }
+    
+    func refreshData(){
+        setSpinnerTitle()
+        
+        if(!dataloaded){
+            RefreshView.beginRefreshing()
+        }
+        dataloaded = false
+        isRefreshing = true
         _eventRefreshData = [Event]()
         beginParsing()
-        
     }
     
     private struct CellTags{
@@ -67,13 +76,19 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
+    func setSpinnerTitle(){
+
+        if(dataloaded){
+            RefreshView.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        }
+        else {
+                RefreshView.attributedTitle = NSAttributedString(string: "Loading...")
+        }
+    }
     override func viewWillAppear(animated: Bool) {
         
-        RefreshView.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        
-        if(!isRefreshing){
-            beginParsing()
+        if(!RefreshView.refreshing  && !dataloaded){
+            refreshData()
         }
         
     }
@@ -81,16 +96,17 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
     func beginParsing()
     {
         if !dataloaded {
-            
+            isRefreshing = true;
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-                self.spinner?.startAnimating()
+                
                 self.parser = NSXMLParser(contentsOfURL:(NSURL(string:DemoData.CalendarUrl))!)!
                 self.parser.delegate = self
                 self.parser.parse()
                 dispatch_async(dispatch_get_main_queue()) {
                     self.tableView!.reloadData()
                     self.RefreshView.endRefreshing()
-                    self.spinner?.stopAnimating()
+                    self.setSpinnerTitle()
+
                 }
             }
         }
