@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -28,7 +28,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>wp.com</key>
+			<key>speedskatingresults.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -37,7 +37,7 @@
 				<key>NSTemporaryExceptionMinimumTLSVersion</key>
 				<string>TLSv1.1</string>
 			</dict>
-			<key>speedskatingresults.com</key>
+			<key>wp.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
