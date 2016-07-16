@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "skater30x1.png",
+      "filename" : "skater_29.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "skater30x2.png",
+      "filename" : "skater_58.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "skater30x3.png",
+      "filename" : "skater_87-1.png",
       "scale" : "3x"
     }
   ],
