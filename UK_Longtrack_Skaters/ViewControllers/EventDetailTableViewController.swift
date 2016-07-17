@@ -68,12 +68,11 @@ class EventDetailTableViewController: UITableViewController {
             
             if let control = cell.viewWithTag(CellTags.Location) as? UILabel {
                 if let value = event.LocationName {
-                    control.text = value
-                }
+                    control.text = value                }
             }
 
             if let control = cell.viewWithTag(CellTags.Details) as? UITextView {
-                if let value = event.EventDetails {
+                if let value = event.DetailsWithLocation {
                     control.text = value
                 }
             }

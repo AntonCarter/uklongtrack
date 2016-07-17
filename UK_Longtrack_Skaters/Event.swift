@@ -11,12 +11,22 @@ import Foundation
 class Event {
     private var _address: String?
     private var _locationName: String?
+    private var _detailsWithLocation: String?
     
     var EventTitle: String?
     var EventDate: NSDate?
     var EventLocation: String?
     var EventImageUrl: NSURL?
     var EventDetails: String?
+    var DetailsWithLocation: String? {
+        get {
+            if _detailsWithLocation == nil {
+                _detailsWithLocation = EventDetails! + EventAddress!
+            }
+            return _detailsWithLocation
+        }
+    }
+    
     var EventAddress: String? {
         get{
             
