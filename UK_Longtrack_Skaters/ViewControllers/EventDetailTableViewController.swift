@@ -17,6 +17,7 @@ class EventDetailTableViewController: UITableViewController {
         static let Day = 404
         static let Month = 405
         static let Details = 406
+        static let Address = 407
     }
     
     var EventDetail: Event?
@@ -91,6 +92,11 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
 
+            if let control = cell.viewWithTag(CellTags.Address) as? UITextView {
+                if let value = event.EventAddress {
+                    control.text = value
+                }
+            }
             
             if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
                 if let value = event.EventImageUrl {

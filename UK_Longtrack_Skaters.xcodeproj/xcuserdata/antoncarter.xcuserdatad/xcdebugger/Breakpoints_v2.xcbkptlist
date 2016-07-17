@@ -51,5 +51,101 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+            timestampString = "490470616.954376"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UK_Longtrack.EventDetailTableViewController.tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "UK Longtrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/antoncarter/Documents/Development/swift/uk_ltrk_skaters/Uk_Longtrack_Skaters/UK_Longtrack_Skaters/UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+                  timestampString = "490470839.953358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "3468">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UK_Longtrack.EventDetailTableViewController.tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "UK Longtrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/antoncarter/Documents/Development/swift/uk_ltrk_skaters/Uk_Longtrack_Skaters/UK_Longtrack_Skaters/UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+                  timestampString = "490470839.95351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "3572">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+            timestampString = "490470634.230121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UK_Longtrack.EventDetailTableViewController.tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "UK Longtrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/antoncarter/Documents/Development/swift/uk_ltrk_skaters/Uk_Longtrack_Skaters/UK_Longtrack_Skaters/UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+                  timestampString = "490470840.018069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "3228">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UK_Longtrack.EventDetailTableViewController.tableView (__ObjC.UITableView, cellForRowAtIndexPath : __ObjC.NSIndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "UK Longtrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/antoncarter/Documents/Development/swift/uk_ltrk_skaters/Uk_Longtrack_Skaters/UK_Longtrack_Skaters/UK_Longtrack_Skaters/ViewControllers/EventDetailTableViewController.swift"
+                  timestampString = "490470840.018317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "3456">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
