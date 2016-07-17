@@ -11,7 +11,7 @@ import UIKit
 class EventDetailTableViewController: UITableViewController {
 
     private struct CellTags{
-        static let ImageView = 401
+    static let ImageView = 401
         static let Title = 402
         static let Location = 403
         static let Day = 404
@@ -66,7 +66,7 @@ class EventDetailTableViewController: UITableViewController {
             }
             
             if let control = cell.viewWithTag(CellTags.Location) as? UILabel {
-                if let value = event.EventLocation {
+                if let value = event.LocationName {
                     control.text = value
                 }
             }

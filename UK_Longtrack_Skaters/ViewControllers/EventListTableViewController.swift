@@ -149,7 +149,6 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             e.EventTitle = eventElements[Elements.Title]
             e.EventLocation = eventElements[Elements.Locaion]
             e.EventDetails = eventElements[Elements.Details]
-            
             e.EventImageUrl = ParseImageUrl(eventElements[Elements.ImageUrl] ?? "")
             if let dateString = eventElements[Elements.EventStart] {
                 let formatter = NSDateFormatter()
@@ -219,7 +218,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         }
         
         if let locationLabel = cell.viewWithTag(CellTags.Location) as? UILabel {
-            if let value = event.EventLocation {
+            if let value = event.LocationName {
                 locationLabel.text = value
             }
         }
