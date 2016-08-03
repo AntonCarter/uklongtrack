@@ -204,6 +204,16 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
         
         let event = _eventData[indexPath.row]
         // Configure the cell...
+        
+        if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
+            if let value = event.EventImageUrl {
+                if value != "" {
+                    imageView.image = nil
+                }
+                ImageManager.fetchImage(value, imageView:imageView)
+            }
+        }
+        
         if let distanceLabel = cell.viewWithTag(CellTags.Title) as? UILabel {
             if let value = event.EventTitle {
                 distanceLabel.text = value
@@ -223,11 +233,7 @@ class EventListTableViewController: UITableViewController, NSXMLParserDelegate {
             }
         }
         
-        if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
-            if let value = event.EventImageUrl {
-                ImageManager.fetchImage(value, imageView:imageView)
-            }
-        }
+
         
         return cell
     }

@@ -30,6 +30,7 @@ class EventDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,9 +58,22 @@ class EventDetailTableViewController: UITableViewController {
         formatter.dateFormat = "dd MMMM yyyy"
         let dateFormatter: NSDateFormatter = NSDateFormatter()
         
+
         
 
         if let event = EventDetail {
+            
+            
+            if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
+            
+                if let value = event.EventImageUrl {
+                    if value != "" {
+                        imageView.image = nil
+                    }
+                    ImageManager.fetchImage(value, imageView:imageView)
+                }
+            }
+            
             if let control = cell.viewWithTag(CellTags.Title) as? UILabel {
                 if let value = event.EventTitle {
                     control.text = value
@@ -97,11 +111,7 @@ class EventDetailTableViewController: UITableViewController {
                 }
             }
             
-            if let imageView = cell.viewWithTag(CellTags.ImageView) as? UIImageView {
-                if let value = event.EventImageUrl {
-                  ImageManager.fetchImage(value, imageView:imageView)
-                }
-            }
+
         }
     
 

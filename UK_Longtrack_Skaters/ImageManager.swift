@@ -13,6 +13,7 @@ class ImageManager {
     static func fetchImage(imageURL: NSURL?, imageView: UIImageView) {
         
         if let url = imageURL {
+
             // fire up the spinner
             // because we're about to fork something off on another thread
             // spinner?.startAnimating()
