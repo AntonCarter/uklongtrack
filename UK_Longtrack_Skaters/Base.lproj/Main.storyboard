@@ -402,7 +402,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="304" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="32n-xm-Gfa">
+                                        <imageView userInteractionEnabled="NO" tag="304" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing_event_icon" translatesAutoresizingMaskIntoConstraints="NO" id="32n-xm-Gfa">
                                             <rect key="frame" x="8" y="7" width="86" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="86" id="WIW-A8-W3V"/>
@@ -482,7 +482,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="775"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="401" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-qS-A11">
+                                        <imageView userInteractionEnabled="NO" tag="401" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="missing_event_banner" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-qS-A11">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="153"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="153" id="FV4-pu-gyN"/>
@@ -624,6 +624,8 @@
         <image name="calendar-tabbar" width="35" height="35"/>
         <image name="current-skater" width="30" height="30"/>
         <image name="favourite-unselected" width="75" height="75"/>
+        <image name="missing_event_banner" width="1388" height="608"/>
+        <image name="missing_event_icon" width="615" height="608"/>
         <image name="record" width="30" height="30"/>
         <image name="skater" width="29" height="29"/>
     </resources>
